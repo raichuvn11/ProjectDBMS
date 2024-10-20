@@ -452,6 +452,11 @@ Return(
 	Where ChiTietHD.MaHD = @MaHD
 	);
 GO
+ALTER TABLE PhanCa
+ADD TrangThai nvarchar(30);
+drop PROCEDURE if exists sp_GetCaLamViecByNhanVien
+drop FUNCTION if exists fn_GetDoanhThuByMaCaVaNhanVien
+drop FUNCTION if exists fn_GetDoanhThuTheoNgay
 --hàm load ca
 CREATE PROCEDURE sp_GetCaLamViecByNhanVien
     @MaNV NVARCHAR(30)
@@ -521,4 +526,52 @@ RETURN
     GROUP BY PC.MaCa, CL.Ngay
 );
 GO
+
+-- thủ tục lấy ca làm việc được phân gần nhất để thực hiện chấm công 
+Create  PROCEDURE sp_GetCaLamViec
+    @MaNV NVARCHAR(30)
+AS
+BEGIN
+    SELECT TOP 1 -- Chỉ lấy 1 phân ca gần nhất
+        CL.MaCa, 
+        CL.TenCa, 
+        CL.Ngay, 
+        CL.ThoiGianBD, 
+        CL.ThoiGianKT
+    FROM 
+        PhanCa PC
+        JOIN CaLamViec CL ON PC.MaCa = CL.MaCa
+    WHERE 
+        PC.MaNhanVien = @MaNV
+        AND PC.TrangThai = 0 -- Chỉ lấy các phân ca chưa chấm công
+        
+    ORDER BY 
+        DATEDIFF(MINUTE, GETDATE(), CAST(CONCAT(CL.Ngay, ' ', CL.ThoiGianBD) AS DATETIME)) ASC; -- Sắp xếp theo độ gần gũi với thời gian hiện tại
+END;
+GO
+-- thủ tục thực hiện chấm công 
+CREATE PROCEDURE sp_ChamCong
+    @MaNV NVARCHAR(30),
+    @MaCa NVARCHAR(30)
+AS
+BEGIN
+    UPDATE PhanCa
+    SET TrangThai = 1 -- 1 có thể đại diện cho "Đã Chấm Công"
+    WHERE MaNhanVien = @MaNV AND MaCa = @MaCa;
+END;
+GO
+-- procedure thêm vào chi tiết hóa đơn sau khi xuất hóa đơn
+Create Procedure sp_insertChiTietHD
+	@MaLK nvarchar(30),
+	@MaHD nvarchar(30),
+	@SoLuong int,
+	@DonGia float,
+	@TongTien float
+As
+Begin
+	Insert into ChiTietHD(MaLK, MaHD, SoLuong, DonGia, TongTien)
+	Values(@MaLK, @MaHD, @SoLuong, @DonGia, @TongTien)
+End;
+
+
 

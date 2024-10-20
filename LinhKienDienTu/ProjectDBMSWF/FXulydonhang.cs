@@ -70,12 +70,27 @@ namespace ProjectDBMSWF
 
         private void btn_addHoaDon_Click(object sender, EventArgs e)
         {
-            
-            NhanVienDAO.saveInfoKH(txb_hoten.Text, txb_sdt.Text, txb_email.Text, txb_diachi.Text);
-            DateTime ngayXuatHD;
 
-            string maKH = "KH" + txb_sdt.Text;
-            NhanVienDAO.xuatHoaDon(DateTime.Now.Date, float.Parse(lbl_triGiaHoaDon.Text), maKH, FNhanvien.maNV);
+            try
+            {
+                NhanVienDAO.saveInfoKH(txb_hoten.Text, txb_sdt.Text, txb_email.Text, txb_diachi.Text);
+                DateTime ngayXuatHD = DateTime.Now;
+                string maKH = "KH" + txb_sdt.Text;
+                NhanVienDAO.xuatHoaDon(ngayXuatHD, float.Parse(lbl_triGiaHoaDon.Text), maKH, FNhanvien.maNV);
+                MessageBox.Show("Thêm hóa đơn thành công", "Thông báo");
+
+                //thêm vào chi tiết hóa đơn
+                string maHD = NhanVienDAO.getMaHD(FNhanvien.maNV, maKH, ngayXuatHD);
+                foreach (OrderItem item in FNhanvien.listOrder)
+                {
+                    NhanVienDAO.themChiTietHD(item.MaLK, maHD, item.Soluong, item.DonGia, item.TongTien);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
 
 
 

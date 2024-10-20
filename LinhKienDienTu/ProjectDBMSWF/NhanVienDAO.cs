@@ -250,5 +250,19 @@ namespace ProjectDBMSWF
                 }
             }
         }
+        // hàm lấy mã hóa đơn 
+        public static string getMaHD(string maNV, string maKH, DateTime ngayXuatHD)
+        {
+            string maHD = maKH + "_" + maNV + "_" + ngayXuatHD.ToString("yyMMdd");
+
+            return maHD;
+        }
+
+        //hàm thêm sản phẩm vào chi tiết hóa đơn khi xuất hóa đơn
+        public static void themChiTietHD(string maLK, string maHD, int soLuong, float donGia, float tongTien)
+        {
+            string query = string.Format("EXEC sp_insertChiTietHD '{0}', '{1}', '{2}', '{3}', '{4}'", maLK, maHD, soLuong, donGia, tongTien);
+            ExecutingNonResult(query);
+        }
     }
 }
