@@ -101,7 +101,7 @@ namespace ProjectDBMSWF
 
         private void btnChamcong_Click(object sender, EventArgs e)
         {
-            
+            OpenForm(new FChamCong(this));
         }
 
         private void btnXuly_Click(object sender, EventArgs e)
@@ -119,15 +119,17 @@ namespace ProjectDBMSWF
             Application.Exit();
         }
 
-        private void FNhanvien_Load(object sender, EventArgs e)
-        {
-            label2.Text = ngayLamViec;
-            label2.Visible = true;
-        }
+
         public void SetNgayLamViec(string ngay)
         {
             ngayLamViec = ngay;
             label2.Text = ngay;
+        }
+
+        private void FNhanvien_Load(object sender, EventArgs e)
+        {
+            label2.Text = ngayLamViec;
+            label2.Visible = true;
         }
     }
 }

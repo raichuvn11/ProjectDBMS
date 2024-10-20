@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.lb_ChamCong = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -38,26 +38,30 @@
             this.guna2Elipse1.BorderRadius = 25;
             this.guna2Elipse1.TargetControl = this;
             // 
-            // label1
+            // lb_ChamCong
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(462, 348);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 25);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Chấm Công";
+            this.lb_ChamCong.AutoSize = true;
+            this.lb_ChamCong.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_ChamCong.Location = new System.Drawing.Point(616, 428);
+            this.lb_ChamCong.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lb_ChamCong.Name = "lb_ChamCong";
+            this.lb_ChamCong.Size = new System.Drawing.Size(158, 31);
+            this.lb_ChamCong.TabIndex = 2;
+            this.lb_ChamCong.Text = "Chấm Công";
+            this.lb_ChamCong.Visible = false;
             // 
             // FChamCong
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(201)))), ((int)(((byte)(234)))));
-            this.ClientSize = new System.Drawing.Size(1111, 720);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(1481, 886);
+            this.Controls.Add(this.lb_ChamCong);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FChamCong";
             this.Text = "FChamCong";
+            this.Load += new System.EventHandler(this.FChamCong_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -66,6 +70,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb_ChamCong;
     }
 }
