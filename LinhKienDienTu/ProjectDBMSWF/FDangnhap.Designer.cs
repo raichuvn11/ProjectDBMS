@@ -33,11 +33,11 @@
             this.pnlLogin = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.btnQly = new Guna.UI2.WinForms.Guna2Button();
             this.btnNvien = new Guna.UI2.WinForms.Guna2Button();
+            this.txbLogin = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnDangnhap = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
-            this.txbLogin = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnClose = new Guna.UI2.WinForms.Guna2ImageButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlLogin.SuspendLayout();
@@ -104,6 +104,28 @@
             this.btnNvien.Text = "Nhân Viên";
             this.btnNvien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // txbLogin
+            // 
+            this.txbLogin.Animated = true;
+            this.txbLogin.BorderRadius = 8;
+            this.txbLogin.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txbLogin.DefaultText = "";
+            this.txbLogin.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txbLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txbLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txbLogin.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txbLogin.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txbLogin.Font = new System.Drawing.Font("UTM Alberta Heavy", 9F);
+            this.txbLogin.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txbLogin.IconLeft = ((System.Drawing.Image)(resources.GetObject("txbLogin.IconLeft")));
+            this.txbLogin.Location = new System.Drawing.Point(66, 260);
+            this.txbLogin.Name = "txbLogin";
+            this.txbLogin.PasswordChar = '*';
+            this.txbLogin.PlaceholderText = "Mã Nhân Viên";
+            this.txbLogin.SelectedText = "";
+            this.txbLogin.Size = new System.Drawing.Size(261, 38);
+            this.txbLogin.TabIndex = 20;
+            // 
             // btnDangnhap
             // 
             this.btnDangnhap.AutoRoundedCorners = true;
@@ -123,6 +145,7 @@
             this.btnDangnhap.Size = new System.Drawing.Size(121, 42);
             this.btnDangnhap.TabIndex = 18;
             this.btnDangnhap.Text = "Đăng nhập";
+            this.btnDangnhap.Click += new System.EventHandler(this.btnDangnhap_Click);
             // 
             // label2
             // 
@@ -148,28 +171,6 @@
             // guna2AnimateWindow1
             // 
             this.guna2AnimateWindow1.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_SLIDE;
-            // 
-            // txbLogin
-            // 
-            this.txbLogin.Animated = true;
-            this.txbLogin.BorderRadius = 8;
-            this.txbLogin.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txbLogin.DefaultText = "";
-            this.txbLogin.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txbLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txbLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txbLogin.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txbLogin.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txbLogin.Font = new System.Drawing.Font("UTM Alberta Heavy", 9F);
-            this.txbLogin.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txbLogin.IconLeft = ((System.Drawing.Image)(resources.GetObject("txbLogin.IconLeft")));
-            this.txbLogin.Location = new System.Drawing.Point(66, 260);
-            this.txbLogin.Name = "txbLogin";
-            this.txbLogin.PasswordChar = '\0';
-            this.txbLogin.PlaceholderText = "Mã Nhân Viên";
-            this.txbLogin.SelectedText = "";
-            this.txbLogin.Size = new System.Drawing.Size(261, 38);
-            this.txbLogin.TabIndex = 20;
             // 
             // btnClose
             // 

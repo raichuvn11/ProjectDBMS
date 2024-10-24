@@ -81,5 +81,12 @@ namespace ProjectDBMSWF
         {
             OpenForm(new FQuanlykho());
         }
+
+        private void btnDangxuat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FDangnhap f = new FDangnhap();
+            f.Show();
+        }
     }
 }

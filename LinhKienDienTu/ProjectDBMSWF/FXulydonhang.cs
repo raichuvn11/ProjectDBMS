@@ -91,7 +91,8 @@ namespace ProjectDBMSWF
             {
                 MessageBox.Show(ex.ToString());
             }
-
+            FNhanvien.listOrder.Clear();
+            FNhanvien.bindingList.Clear();
 
 
         }

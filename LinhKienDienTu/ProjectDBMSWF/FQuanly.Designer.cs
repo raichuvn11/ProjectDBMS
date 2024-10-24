@@ -33,6 +33,7 @@
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panelMenu = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.btnDangxuat = new Guna.UI2.WinForms.Guna2Button();
+            this.btnKho = new Guna.UI2.WinForms.Guna2Button();
             this.btnQlyNH = new Guna.UI2.WinForms.Guna2Button();
             this.btnNCC = new Guna.UI2.WinForms.Guna2Button();
             this.btnQuanlyNvien = new Guna.UI2.WinForms.Guna2Button();
@@ -43,7 +44,6 @@
             this.guna2Separator4 = new Guna.UI2.WinForms.Guna2Separator();
             this.ptb_avatar = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnClose = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.btnKho = new Guna.UI2.WinForms.Guna2Button();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_avatar)).BeginInit();
             this.SuspendLayout();
@@ -100,6 +100,33 @@
             this.btnDangxuat.TabIndex = 10;
             this.btnDangxuat.Text = "Đăng xuất";
             this.btnDangxuat.UseTransparentBackground = true;
+            this.btnDangxuat.Click += new System.EventHandler(this.btnDangxuat_Click);
+            // 
+            // btnKho
+            // 
+            this.btnKho.Animated = true;
+            this.btnKho.BackColor = System.Drawing.Color.Transparent;
+            this.btnKho.BorderRadius = 20;
+            this.btnKho.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnKho.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.btnKho.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnKho.CustomImages.Image = global::ProjectDBMSWF.Properties.Resources.import__1_;
+            this.btnKho.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnKho.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnKho.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnKho.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnKho.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnKho.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(201)))), ((int)(((byte)(234)))));
+            this.btnKho.Font = new System.Drawing.Font("UTM Alberta Heavy", 9F);
+            this.btnKho.ForeColor = System.Drawing.Color.Black;
+            this.btnKho.Location = new System.Drawing.Point(17, 271);
+            this.btnKho.Name = "btnKho";
+            this.btnKho.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.btnKho.Size = new System.Drawing.Size(200, 53);
+            this.btnKho.TabIndex = 24;
+            this.btnKho.Text = "Kho Linh Kiện";
+            this.btnKho.UseTransparentBackground = true;
+            this.btnKho.Click += new System.EventHandler(this.btnKho_Click);
             // 
             // btnQlyNH
             // 
@@ -307,32 +334,6 @@
             this.btnClose.TabIndex = 14;
             this.btnClose.UseTransparentBackground = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnKho
-            // 
-            this.btnKho.Animated = true;
-            this.btnKho.BackColor = System.Drawing.Color.Transparent;
-            this.btnKho.BorderRadius = 20;
-            this.btnKho.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnKho.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.btnKho.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnKho.CustomImages.Image = global::ProjectDBMSWF.Properties.Resources.import__1_;
-            this.btnKho.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnKho.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnKho.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnKho.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnKho.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnKho.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(201)))), ((int)(((byte)(234)))));
-            this.btnKho.Font = new System.Drawing.Font("UTM Alberta Heavy", 9F);
-            this.btnKho.ForeColor = System.Drawing.Color.Black;
-            this.btnKho.Location = new System.Drawing.Point(17, 271);
-            this.btnKho.Name = "btnKho";
-            this.btnKho.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.btnKho.Size = new System.Drawing.Size(200, 53);
-            this.btnKho.TabIndex = 24;
-            this.btnKho.Text = "Kho Linh Kiện";
-            this.btnKho.UseTransparentBackground = true;
-            this.btnKho.Click += new System.EventHandler(this.btnKho_Click);
             // 
             // FQuanly
             // 

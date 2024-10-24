@@ -45,45 +45,6 @@ BEGIN
     );
 END;
 GO
---Trigger cập nhập số lượng linh kiện khi thêm dữ liệu vào bảng NhapHang
-CREATE TRIGGER trg_updateSoLuongLK
-ON NhapHang
-AFTER INSERT, UPDATE, DELETE
-AS
-BEGIN
-    IF EXISTS (SELECT * FROM inserted)
-    BEGIN
-        DECLARE @MaLK NCHAR(10);
-
-        SELECT @MaLK = i.MaLK
-        FROM inserted i;
-
-        UPDATE LinhKien
-        SET SoLuong = (
-            SELECT ISNULL(SUM(nh.SoLuong), 0)
-            FROM NhapHang nh
-            WHERE nh.MaLK = @MaLK
-        )
-        WHERE MaLK = @MaLK;
-    END
-
-    IF EXISTS (SELECT * FROM deleted)
-    BEGIN
-      
-
-        SELECT @MaLK = d.MaLK
-        FROM deleted d;
-
-        UPDATE LinhKien
-        SET SoLuong = (
-            SELECT ISNULL(SUM(nh.SoLuong), 0)
-            FROM NhapHang nh
-            WHERE nh.MaLK = @MaLK
-        )
-        WHERE MaLK = @MaLK;
-    END
-END;
-GO
 --Trigger tự động tạo mã nhà cung cấp
 CREATE TRIGGER trg_genMaNCC
 ON NhaCungCap
@@ -147,25 +108,43 @@ BEGIN
     FROM inserted i;
 END;
 GO
--- Trigger tự động tạo mã khách hàng khi insert vào bảng 
-CREATE TRIGGER tg_genCustomerID
-ON KhachHang
-INSTEAD OF INSERT
+-- Trigger cập nhật số lượng linh kiện khi thêm, sửa, xóa dữ liệu vào bảng NhapHang
+CREATE TRIGGER trg_UpdateSoLuongLinhKien_NhapHang
+ON NhapHang
+AFTER INSERT, UPDATE, DELETE
 AS
 BEGIN
-    INSERT INTO KhachHang (MaKH, HoTen, SDT, Email, DiaChi)
-    SELECT 'KH' + i.SDT, i.HoTen, i.SDT, i.Email, i.DiaChi
-    FROM inserted i;
+    IF EXISTS (SELECT * FROM inserted)
+    BEGIN
+        UPDATE LinhKien
+        SET SoLuong +=  ISNULL(i.SoLuong, 0)
+        FROM LinhKien lk
+        INNER JOIN inserted i ON lk.MaLK = i.MaLK;
+    END
+
+    IF EXISTS (SELECT * FROM deleted)
+    BEGIN
+        UPDATE LinhKien
+        SET SoLuong -= ISNULL(d.SoLuong, 0)
+        FROM LinhKien lk
+        INNER JOIN deleted d ON lk.MaLK = d.MaLK;
+    END
 END;
 GO
--- Trigger tự động tạo mã hóa đơn
-CREATE TRIGGER trg_genMaHD
-ON HoaDon
-INSTEAD OF INSERT 
+--Trigger cập nhật số lượng linh kiện khi xuất hóa đơn
+CREATE TRIGGER trg_UpdateSoLuongLinhKien_XuatHoaDon
+ON ChiTietHD
+AFTER INSERT, UPDATE
 AS
 BEGIN
-    INSERT INTO HoaDon(MaHD, NgayXuat, TongGiaTri, MaKH, MaNV)
-    SELECT RTRIM(i.MaKH) + '_' + RTRIM(i.MaNV) + '_' + FORMAT(i.NgayXuat,'yyMMdd'), i.NgayXuat, i.TongGiaTri, i.MaKH, i.MaNV
-    FROM inserted i;
+    IF EXISTS (SELECT * FROM inserted)
+    BEGIN
+        UPDATE LinhKien
+        SET SoLuong -= ISNULL(i.SoLuong, 0)
+        FROM LinhKien lk
+        INNER JOIN inserted i ON lk.MaLK = i.MaLK;
+    END
+
 END;
 GO
+

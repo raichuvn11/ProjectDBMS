@@ -13,8 +13,7 @@ namespace ProjectDBMSWF
 {
     public partial class FQuanlynhanvien : Form
     {
-        string strCon = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LinhKienDienTu2;Integrated Security=True";
-        SqlConnection sqlCon = null;
+        ConnectDB sqlCon = new ConnectDB(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LinhKienDienTu2;Integrated Security=True");
         public FQuanlynhanvien()
         {
             InitializeComponent();
@@ -24,22 +23,15 @@ namespace ProjectDBMSWF
         {
             try
             {
-                if (sqlCon == null)
-                {
-                    sqlCon = new SqlConnection(strCon);
-                }
-                if (sqlCon.State == ConnectionState.Closed)
-                {
-                    sqlCon.Open();
+                sqlCon.Open();
 
-                    string sqlStr = string.Format("SELECT *FROM NhanVien");
+                string sqlStr = string.Format("SELECT *FROM NhanVien");
 
-                    SqlDataAdapter adapter = new SqlDataAdapter(sqlStr, sqlCon);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-                    dgvDanhSachNV.DataSource = dt;
-                    MessageBox.Show("Ket noi thanh cong");
-                }
+                SqlDataAdapter adapter = new SqlDataAdapter(sqlStr, sqlCon.GetConnection());
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dgvDanhSachNV.DataSource = dt;
+                MessageBox.Show("Ket noi thanh cong");
             }
             catch (Exception ex)
             {
@@ -47,10 +39,8 @@ namespace ProjectDBMSWF
             }
             finally
             {
-                if (sqlCon.State == ConnectionState.Open)
-                {
-                    sqlCon.Close();
-                }
+
+                sqlCon.Close();
             }
         }
 
@@ -60,7 +50,7 @@ namespace ProjectDBMSWF
             {
                 sqlCon.Open();
                 string sql = "SELECT *FROM dbo.fn_timMaNV(@MaNV)";
-                SqlDataAdapter adapter = new SqlDataAdapter(sql, sqlCon);
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, sqlCon.GetConnection());
                 adapter.SelectCommand.Parameters.AddWithValue("@MaNV", txtNhap.Text);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -72,10 +62,7 @@ namespace ProjectDBMSWF
             }
             finally
             {
-                if (sqlCon.State == ConnectionState.Open)
-                {
-                    sqlCon.Close();
-                }
+                sqlCon.Close();
             }
         }
 
@@ -104,7 +91,7 @@ namespace ProjectDBMSWF
             {
                 sqlCon.Open();
                 string proc = String.Format("Execute nv_InsertNhanVien @MaNV, @HoTen, @SDT, @NgayBDLamViec, @NgaySinh, @GioiTinh, @DiaChi, @Luong");
-                SqlCommand cmd = new SqlCommand(proc, sqlCon);
+                SqlCommand cmd = new SqlCommand(proc, sqlCon.GetConnection());
                 cmd.Parameters.AddWithValue("@MaNV", txtMaNV.Text);
                 cmd.Parameters.AddWithValue("@HoTen", txtHoTen.Text);
                 cmd.Parameters.AddWithValue("@SDT", txtSDT.Text);
@@ -125,10 +112,7 @@ namespace ProjectDBMSWF
             }
             finally
             {
-                if (sqlCon.State == ConnectionState.Open)
-                {
-                    sqlCon.Close();
-                }
+                sqlCon.Close();
             }
         }
 
@@ -138,7 +122,7 @@ namespace ProjectDBMSWF
             {
                 sqlCon.Open();
                 string proc = String.Format("Execute nv_deleteNhanVien @MaNV");
-                SqlCommand cmd = new SqlCommand(proc, sqlCon);
+                SqlCommand cmd = new SqlCommand(proc, sqlCon.GetConnection());
                 cmd.Parameters.AddWithValue("@MaNV", txtNhap.Text);
                 if (cmd.ExecuteNonQuery() > 0)
                 {
@@ -156,10 +140,7 @@ namespace ProjectDBMSWF
             }
             finally
             {
-                if (sqlCon.State == ConnectionState.Open)
-                {
-                    sqlCon.Close();
-                }
+                sqlCon.Close();
             }
         }
 
@@ -169,7 +150,7 @@ namespace ProjectDBMSWF
             {
                 sqlCon.Open();
                 string proc = String.Format("Execute nv_updateNhanVien @MaNV, @HoTen, @SDT, @NgayBDLamViec, @NgaySinh, @GioiTinh, @DiaChi, @Luong");
-                SqlCommand cmd = new SqlCommand(proc, sqlCon);
+                SqlCommand cmd = new SqlCommand(proc, sqlCon.GetConnection());
                 cmd.Parameters.AddWithValue("@MaNV", txtMaNV.Text);
                 cmd.Parameters.AddWithValue("@HoTen", txtHoTen.Text);
                 cmd.Parameters.AddWithValue("@SDT", txtSDT.Text);
@@ -189,12 +170,8 @@ namespace ProjectDBMSWF
             }
             finally
             {
-                if (sqlCon.State == ConnectionState.Open)
-                {
-                    sqlCon.Close();
-                }
+                sqlCon.Close();
             }
-
         }
 
         private void btnReload_Click(object sender, EventArgs e)

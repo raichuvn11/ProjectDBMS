@@ -13,8 +13,7 @@ namespace ProjectDBMSWF
 {
     public partial class FDoanhthu : Form
     {
-        string strCon = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LinhKienDienTu2;Integrated Security=True";
-        SqlConnection sqlCon = null;
+        ConnectDB sqlCon = new ConnectDB(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LinhKienDienTu2;Integrated Security=True");
         public FDoanhthu()
         {
             InitializeComponent();
@@ -24,13 +23,9 @@ namespace ProjectDBMSWF
         {
             try
             {
-                if (sqlCon == null)
-                {
-                    sqlCon = new SqlConnection(strCon);
-                }
                 sqlCon.Open();
                 string func = "SELECT dbo.fn_tongDoanhThu(@Start, @End)";
-                SqlCommand cmd = new SqlCommand(func, sqlCon);
+                SqlCommand cmd = new SqlCommand(func, sqlCon.GetConnection());
                 cmd.Parameters.AddWithValue("@Start", dtpNgayBatDau.Value);
                 cmd.Parameters.AddWithValue("@End", dtpNgayKetThuc.Value);
                 txtDoanhThu.Text = cmd.ExecuteScalar().ToString();
@@ -42,10 +37,7 @@ namespace ProjectDBMSWF
             }
             finally
             {
-                if (sqlCon.State == ConnectionState.Open)
-                {
-                    sqlCon.Close();
-                }
+                sqlCon.Close();
             }
         }
 
@@ -53,19 +45,15 @@ namespace ProjectDBMSWF
         {
             try
             {
-                if (sqlCon == null)
-                {
-                    sqlCon = new SqlConnection(strCon);
-                }
                 sqlCon.Open();
                 string func1 = "SELECT dbo.fn_doanhThuTheoThang(@Month, @Year)";
-                SqlCommand cmd = new SqlCommand(func1, sqlCon);
+                SqlCommand cmd = new SqlCommand(func1, sqlCon.GetConnection());
                 cmd.Parameters.AddWithValue("@Month", Convert.ToInt32(cbThang.SelectedItem));
                 cmd.Parameters.AddWithValue("@Year", Convert.ToInt32(txtNam.Text));
                 txtDoanhThuThang.Text = cmd.ExecuteScalar().ToString();
 
                 string func2 = "SELECT dbo.fn_loiNhuanTheoThang(@Month, @Year)";
-                SqlCommand cmd2 = new SqlCommand(func2, sqlCon);
+                SqlCommand cmd2 = new SqlCommand(func2, sqlCon.GetConnection());
                 cmd2.Parameters.AddWithValue("@Month", Convert.ToInt32(cbThang.SelectedItem));
                 cmd2.Parameters.AddWithValue("@Year", Convert.ToInt32(txtNam.Text));
                 txtLoiNhuan.Text = cmd2.ExecuteScalar().ToString();
@@ -76,10 +64,7 @@ namespace ProjectDBMSWF
             }
             finally
             {
-                if (sqlCon.State == ConnectionState.Open)
-                {
-                    sqlCon.Close();
-                }
+                sqlCon.Close();
             }
         }
     }

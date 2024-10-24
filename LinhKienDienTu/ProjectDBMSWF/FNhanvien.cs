@@ -16,7 +16,7 @@ namespace ProjectDBMSWF
 
         public static ObservableCollection<OrderItem> listOrder = new ObservableCollection<OrderItem>();
         public static BindingList<OrderItem> bindingList = new BindingList<OrderItem>(listOrder.ToList());
-        public static string maNV = "NV01";
+        public static string maNV;
 
         public static string ngayLamViec = "";
         public static void AddOrderItem(OrderItem item)
@@ -130,6 +130,13 @@ namespace ProjectDBMSWF
         {
             label2.Text = ngayLamViec;
             label2.Visible = true;
+        }
+
+        private void btnDangxuat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FDangnhap f = new FDangnhap();
+            f.Show();
         }
     }
 }

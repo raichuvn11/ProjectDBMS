@@ -58,7 +58,7 @@ namespace ProjectDBMSWF
         //tìm linh kiện theo tên
         public static DataTable getProductByName(string tenLK)
         {
-            string query = string.Format("Select * From fn_timTenLK('{0}')", tenLK);
+            string query = string.Format("Select * From fn_timTenLK(N'{0}')", tenLK);
             return ExecuteQuery(query);
         }
 
@@ -99,7 +99,7 @@ namespace ProjectDBMSWF
         //Lưu thông tin khách hàng
         public static void saveInfoKH(string hoTen, string SDT, string email, string diaChi)
         {
-            string query = String.Format("EXEC sp_InsertKhachHang '{0}', '{1}', '{2}', '{3}'", hoTen, SDT, email, diaChi);
+            string query = String.Format("EXEC sp_InsertKhachHang N'{0}', '{1}', '{2}', N'{3}'", hoTen, SDT, email, diaChi);
             ExecutingNonResult(query);
         }
 
@@ -120,7 +120,7 @@ namespace ProjectDBMSWF
         //load danh sách hóa đơn theo ten khách hàng
         public static DataTable getDanhSachHDByName(string maNV, string tenKH)
         {
-            string query = String.Format("Select * From fn_GetHoaDonByMaNV('{0}') Where HoTen Like '%{1}%'", maNV, tenKH);
+            string query = String.Format("Select * From fn_GetHoaDonByMaNV('{0}') Where HoTen Like N'%{1}%'", maNV, tenKH);
             return ExecuteQuery(query);
         }
 

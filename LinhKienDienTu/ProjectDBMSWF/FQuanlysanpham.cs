@@ -22,6 +22,7 @@ namespace ProjectDBMSWF
         }
         ConnectDB cnt = new ConnectDB(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LinhKienDienTu2;Integrated Security=True");
         private Image selectedImage;
+        int soluong;
         private void FQuanlysanpham_Load(object sender, EventArgs e)
         {
             panel2.Hide();
@@ -255,8 +256,9 @@ namespace ProjectDBMSWF
                 cbTrangThai.Text = row.Cells["TrangThai"].Value.ToString();
                 cbMaNH2.Text = row.Cells["TenNhom"].Value.ToString();
                 cbMaNCC2.Text = row.Cells["TenNhaCungCap"].Value.ToString();
+                int.TryParse(row.Cells["SoLuong"].Value.ToString(), out soluong);
 
-                
+
                 if (row.Cells["AnhLK"].Value != DBNull.Value)
                 {
                     byte[] hinhAnhBytes = (byte[])row.Cells["AnhLK"].Value;
@@ -310,7 +312,7 @@ namespace ProjectDBMSWF
                     command.Parameters.AddWithValue("@TenLK", txtTenSP2.Text);
                     command.Parameters.AddWithValue("@GiaTien", txtGiaTien2.Text);
                     command.Parameters.AddWithValue("@MoTa", txtMoTa2.Text);
-                    command.Parameters.AddWithValue("@SoLuong", 0);
+                    command.Parameters.AddWithValue("@SoLuong", soluong);
                     command.Parameters.AddWithValue("@TrangThai", cbTrangThai.Text);
                     command.Parameters.AddWithValue("@HinhAnh", (object)hinhAnhBytes ?? DBNull.Value); 
                     if (cbMaNH2.SelectedItem != null)

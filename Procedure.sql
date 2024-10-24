@@ -572,6 +572,22 @@ Begin
 	Insert into ChiTietHD(MaLK, MaHD, SoLuong, DonGia, TongTien)
 	Values(@MaLK, @MaHD, @SoLuong, @DonGia, @TongTien)
 End;
-
-
+--function lấy mã nhân viên khi đăng nhập
+CREATE FUNCTION fn_GetMaNV_BySDT (@MaNV nchar(10))
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT MaNV
+    FROM NhanVien
+    WHERE MaNV = @MaNV
+);
+GO
+-- function tìm theo MaNV
+CREATE FUNCTION fn_timMaNV (@MaNV NVARCHAR(30))
+RETURNS TABLE
+AS
+RETURN(
+    SELECT * FROM NhanVien WHERE MaNV=@MaNV
+);
 

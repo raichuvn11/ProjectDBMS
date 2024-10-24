@@ -24,37 +24,27 @@ namespace ProjectDBMSWF
 
         }
         public void LoadNhomLinhKienToComboBox(ComboBox comboBox)
-        {
-            // Câu lệnh SQL để lấy dữ liệu từ bảng NhomLinhKien
+        {  
             string query = "SELECT MaNhom, TenNhom FROM NhomLinhKien";
             string connectionString = DataConnector.connectionString;
             SqlConnection connection = new SqlConnection(connectionString);
-            // Mở kết nối
             try
             {
-                
 
-                // Khởi tạo SqlCommand
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
-                    // Tạo SqlDataAdapter để lấy dữ liệu
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     DataTable dataTable = new DataTable();
 
-                    // Lấp dữ liệu vào DataTable
                     adapter.Fill(dataTable);
 
-                    // Xóa các mục hiện có trong ComboBox
                     comboBox.Items.Clear();
 
-                    // Thêm các mục vào ComboBox
                     foreach (DataRow row in dataTable.Rows)
                     {
-                        // Thêm tên nhóm linh kiện vào ComboBox
                         comboBox.Items.Add(new { Text = row["TenNhom"].ToString(), Value = row["MaNhom"] });
                     }
 
-                    // Đặt thuộc tính DisplayMember và ValueMember
                     comboBox.DisplayMember = "Text";
                     comboBox.ValueMember = "Value";
                 }
@@ -65,7 +55,6 @@ namespace ProjectDBMSWF
             }
             finally
             {
-                // Đóng kết nối
                 connection.Close();
             }
         }
@@ -110,6 +99,7 @@ namespace ProjectDBMSWF
         {
             listProduct_gridView.DataSource = null;
             listProduct_gridView.DataSource = NhanVienDAO.listProduct();
+            LoadNhomLinhKienToComboBox(box_nhomLk);
             BindingData();
         }
 
@@ -124,10 +114,11 @@ namespace ProjectDBMSWF
         private void btn_search_Click(object sender, EventArgs e)
         {
             listProduct_gridView.DataSource = null;
-            string tenNhom = box_nhomLk.SelectedItem?.ToString();
-            if (string.IsNullOrEmpty(tenNhom))
+            string tenNhom = "";
+            if (box_nhomLk.SelectedItem != null)
             {
-                tenNhom = "";
+                var selectedItem = (dynamic)box_nhomLk.SelectedItem;
+                tenNhom = selectedItem.Text;
             }
             string str_gia = box_gia.SelectedItem?.ToString();
             float gia;

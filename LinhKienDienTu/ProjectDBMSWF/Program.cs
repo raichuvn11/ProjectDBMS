@@ -16,7 +16,7 @@ namespace ProjectDBMSWF
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FNhanvien());
+            Application.Run(new FDangnhap());
         }
     }
 }
