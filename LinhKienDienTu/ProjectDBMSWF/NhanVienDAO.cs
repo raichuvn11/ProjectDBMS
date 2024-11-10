@@ -22,6 +22,10 @@ namespace ProjectDBMSWF
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
                 dataAdapter.Fill(dataTable);
             }
+            catch(SqlException sqlEx)
+            {
+                MessageBox.Show(sqlEx.ToString(), "Lỗi!");
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
@@ -38,6 +42,10 @@ namespace ProjectDBMSWF
                 connection.Open();
                 SqlCommand command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show(sqlEx.ToString(), "Lỗi!");
             }
             catch (Exception ex)
             {
@@ -66,32 +74,27 @@ namespace ProjectDBMSWF
         public static DataTable getProductByFilter(string tenNhom, float gia, string trangThai)
         {
             DataTable dataTable = new DataTable();
-            //tạo câu truy vấn lọc dữ liệu
-            string query = "Select * From LinhKienView Where 1=1";
-            if (tenNhom != "") { query += "AND TenNhom = @TenNhom"; }
-
-            if (trangThai != "") { query += " AND TrangThai = @TrangThai"; }
-
-            if (gia != 0) { query += " AND GiaTien <= @Gia"; }
-
             string connectionString = DataConnector.connectionString;
-            SqlConnection connection = new SqlConnection(connectionString);
-            try
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand(query, connection);
+                try
+                {
+                    // Tạo truy vấn gọi hàm như bảng
+                    string query = "SELECT * FROM fn_GetProductByFilter(@TenNhom, @Gia, @TrangThai)";
+                    SqlCommand command = new SqlCommand(query, connection);
 
-                if (tenNhom != "") { command.Parameters.AddWithValue("@TenNhom", tenNhom); }
+                    // Thêm tham số cho hàm
+                    command.Parameters.AddWithValue("@TenNhom", string.IsNullOrEmpty(tenNhom) ? (object)DBNull.Value : tenNhom);
+                    command.Parameters.AddWithValue("@Gia", gia == 0 ? (object)DBNull.Value : gia);
+                    command.Parameters.AddWithValue("@TrangThai", string.IsNullOrEmpty(trangThai) ? (object)DBNull.Value : trangThai);
 
-                if (trangThai != "") { command.Parameters.AddWithValue("@TrangThai", trangThai); }
-
-                if (gia != 0) { command.Parameters.AddWithValue("@Gia", Convert.ToDouble(gia)); }
-
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-                dataAdapter.Fill(dataTable);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    dataAdapter.Fill(dataTable);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
             return dataTable;
         }
@@ -244,12 +247,17 @@ namespace ProjectDBMSWF
                     cmd.ExecuteNonQuery(); // Thực thi stored procedure
                     MessageBox.Show("Chấm công thành công!");
                 }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
                 }
             }
         }
+
         // hàm lấy mã hóa đơn 
         public static string getMaHD(string maNV, string maKH, DateTime ngayXuatHD)
         {

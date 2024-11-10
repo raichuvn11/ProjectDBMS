@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.gvSP = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -45,10 +45,6 @@
             this.panelContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.cbMaNH = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbMaNCC = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.txtGiaTien = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtMota = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtTenSP = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtMaSP = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnThemLK = new Guna.UI2.WinForms.Guna2Button();
             this.btnHinhAnh = new Guna.UI2.WinForms.Guna2Button();
             this.ptbHinhAnh = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -64,9 +60,6 @@
             this.cbTrangThai = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbMaNH2 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbMaNCC2 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.txtGiaTien2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtMoTa2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtTenSP2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMaSP2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnSua = new Guna.UI2.WinForms.Guna2Button();
             this.btnAnh2 = new Guna.UI2.WinForms.Guna2Button();
@@ -84,6 +77,13 @@
             this.guna2Elipse5 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse6 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse7 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.txtMaSP = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtGiaTien = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtTenSP = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtMoTa = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtGiaTien2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtTenSP2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvSP)).BeginInit();
             this.panel2.SuspendLayout();
@@ -101,6 +101,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.gvSP);
             this.panel1.Controls.Add(this.btnThem);
             this.panel1.Controls.Add(this.txtTimNhom);
@@ -118,29 +119,29 @@
             this.gvSP.AllowUserToDeleteRows = false;
             this.gvSP.AllowUserToResizeColumns = false;
             this.gvSP.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("UTM Alberta Heavy", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.gvSP.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("UTM Alberta Heavy", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Black;
+            this.gvSP.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
             this.gvSP.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("UTM Alberta Heavy", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gvSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("UTM Alberta Heavy", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gvSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.gvSP.ColumnHeadersHeight = 30;
             this.gvSP.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("UTM Alexander", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gvSP.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("UTM Alexander", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvSP.DefaultCellStyle = dataGridViewCellStyle24;
             this.gvSP.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.gvSP.Location = new System.Drawing.Point(7, 170);
             this.gvSP.Name = "gvSP";
@@ -280,7 +281,7 @@
             // 
             this.panel2.Controls.Add(this.btnBack);
             this.panel2.Controls.Add(this.panelContainer);
-            this.panel2.Location = new System.Drawing.Point(12, 12);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1087, 696);
             this.panel2.TabIndex = 24;
@@ -304,12 +305,12 @@
             // panelContainer
             // 
             this.panelContainer.BackColor = System.Drawing.Color.White;
+            this.panelContainer.Controls.Add(this.txtMoTa);
+            this.panelContainer.Controls.Add(this.txtTenSP);
+            this.panelContainer.Controls.Add(this.txtGiaTien);
+            this.panelContainer.Controls.Add(this.txtMaSP);
             this.panelContainer.Controls.Add(this.cbMaNH);
             this.panelContainer.Controls.Add(this.cbMaNCC);
-            this.panelContainer.Controls.Add(this.txtGiaTien);
-            this.panelContainer.Controls.Add(this.txtMota);
-            this.panelContainer.Controls.Add(this.txtTenSP);
-            this.panelContainer.Controls.Add(this.txtMaSP);
             this.panelContainer.Controls.Add(this.btnThemLK);
             this.panelContainer.Controls.Add(this.btnHinhAnh);
             this.panelContainer.Controls.Add(this.ptbHinhAnh);
@@ -332,15 +333,15 @@
             this.cbMaNH.BorderRadius = 17;
             this.cbMaNH.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbMaNH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMaNH.FillColor = System.Drawing.Color.LightGray;
+            this.cbMaNH.FillColor = System.Drawing.Color.Silver;
             this.cbMaNH.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbMaNH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbMaNH.Font = new System.Drawing.Font("UTM Alexander", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMaNH.Font = new System.Drawing.Font("UTM Alexander", 9.75F);
             this.cbMaNH.ForeColor = System.Drawing.Color.Black;
             this.cbMaNH.ItemHeight = 30;
             this.cbMaNH.Location = new System.Drawing.Point(598, 318);
             this.cbMaNH.Name = "cbMaNH";
-            this.cbMaNH.Size = new System.Drawing.Size(229, 36);
+            this.cbMaNH.Size = new System.Drawing.Size(250, 36);
             this.cbMaNH.TabIndex = 4;
             // 
             // cbMaNCC
@@ -351,7 +352,7 @@
             this.cbMaNCC.BorderRadius = 17;
             this.cbMaNCC.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbMaNCC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMaNCC.FillColor = System.Drawing.Color.LightGray;
+            this.cbMaNCC.FillColor = System.Drawing.Color.Silver;
             this.cbMaNCC.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbMaNCC.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbMaNCC.Font = new System.Drawing.Font("UTM Alexander", 9.75F);
@@ -359,112 +360,8 @@
             this.cbMaNCC.ItemHeight = 30;
             this.cbMaNCC.Location = new System.Drawing.Point(119, 318);
             this.cbMaNCC.Name = "cbMaNCC";
-            this.cbMaNCC.Size = new System.Drawing.Size(229, 36);
+            this.cbMaNCC.Size = new System.Drawing.Size(250, 36);
             this.cbMaNCC.TabIndex = 4;
-            // 
-            // txtGiaTien
-            // 
-            this.txtGiaTien.Animated = true;
-            this.txtGiaTien.AutoRoundedCorners = true;
-            this.txtGiaTien.BorderColor = System.Drawing.Color.Gray;
-            this.txtGiaTien.BorderRadius = 18;
-            this.txtGiaTien.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtGiaTien.DefaultText = "";
-            this.txtGiaTien.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtGiaTien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtGiaTien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtGiaTien.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtGiaTien.FillColor = System.Drawing.Color.Gainsboro;
-            this.txtGiaTien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtGiaTien.Font = new System.Drawing.Font("UTM Alexander", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGiaTien.ForeColor = System.Drawing.Color.Black;
-            this.txtGiaTien.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtGiaTien.Location = new System.Drawing.Point(119, 395);
-            this.txtGiaTien.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtGiaTien.Name = "txtGiaTien";
-            this.txtGiaTien.PasswordChar = '\0';
-            this.txtGiaTien.PlaceholderText = "";
-            this.txtGiaTien.SelectedText = "";
-            this.txtGiaTien.Size = new System.Drawing.Size(229, 39);
-            this.txtGiaTien.TabIndex = 3;
-            // 
-            // txtMota
-            // 
-            this.txtMota.Animated = true;
-            this.txtMota.BorderColor = System.Drawing.Color.Gray;
-            this.txtMota.BorderRadius = 10;
-            this.txtMota.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtMota.DefaultText = "";
-            this.txtMota.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtMota.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtMota.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMota.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMota.FillColor = System.Drawing.Color.Gainsboro;
-            this.txtMota.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMota.Font = new System.Drawing.Font("UTM Alexander", 9.75F);
-            this.txtMota.ForeColor = System.Drawing.Color.Black;
-            this.txtMota.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMota.Location = new System.Drawing.Point(598, 410);
-            this.txtMota.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtMota.Multiline = true;
-            this.txtMota.Name = "txtMota";
-            this.txtMota.PasswordChar = '\0';
-            this.txtMota.PlaceholderText = "";
-            this.txtMota.SelectedText = "";
-            this.txtMota.Size = new System.Drawing.Size(388, 200);
-            this.txtMota.TabIndex = 3;
-            // 
-            // txtTenSP
-            // 
-            this.txtTenSP.Animated = true;
-            this.txtTenSP.AutoRoundedCorners = true;
-            this.txtTenSP.BorderColor = System.Drawing.Color.Gray;
-            this.txtTenSP.BorderRadius = 16;
-            this.txtTenSP.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTenSP.DefaultText = "";
-            this.txtTenSP.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtTenSP.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtTenSP.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTenSP.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTenSP.FillColor = System.Drawing.Color.Gainsboro;
-            this.txtTenSP.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTenSP.Font = new System.Drawing.Font("UTM Alexander", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenSP.ForeColor = System.Drawing.Color.Black;
-            this.txtTenSP.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTenSP.Location = new System.Drawing.Point(598, 234);
-            this.txtTenSP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtTenSP.Name = "txtTenSP";
-            this.txtTenSP.PasswordChar = '\0';
-            this.txtTenSP.PlaceholderText = "";
-            this.txtTenSP.SelectedText = "";
-            this.txtTenSP.Size = new System.Drawing.Size(229, 34);
-            this.txtTenSP.TabIndex = 3;
-            // 
-            // txtMaSP
-            // 
-            this.txtMaSP.Animated = true;
-            this.txtMaSP.AutoRoundedCorners = true;
-            this.txtMaSP.BorderColor = System.Drawing.Color.Gray;
-            this.txtMaSP.BorderRadius = 16;
-            this.txtMaSP.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtMaSP.DefaultText = "";
-            this.txtMaSP.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtMaSP.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtMaSP.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMaSP.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMaSP.FillColor = System.Drawing.Color.Gainsboro;
-            this.txtMaSP.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaSP.Font = new System.Drawing.Font("UTM Alexander", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaSP.ForeColor = System.Drawing.Color.Black;
-            this.txtMaSP.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaSP.Location = new System.Drawing.Point(119, 234);
-            this.txtMaSP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtMaSP.Name = "txtMaSP";
-            this.txtMaSP.PasswordChar = '\0';
-            this.txtMaSP.PlaceholderText = "";
-            this.txtMaSP.SelectedText = "";
-            this.txtMaSP.Size = new System.Drawing.Size(229, 34);
-            this.txtMaSP.TabIndex = 3;
             // 
             // btnThemLK
             // 
@@ -609,12 +506,12 @@
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.White;
+            this.guna2Panel2.Controls.Add(this.guna2TextBox1);
+            this.guna2Panel2.Controls.Add(this.txtTenSP2);
+            this.guna2Panel2.Controls.Add(this.txtGiaTien2);
             this.guna2Panel2.Controls.Add(this.cbTrangThai);
             this.guna2Panel2.Controls.Add(this.cbMaNH2);
             this.guna2Panel2.Controls.Add(this.cbMaNCC2);
-            this.guna2Panel2.Controls.Add(this.txtGiaTien2);
-            this.guna2Panel2.Controls.Add(this.txtMoTa2);
-            this.guna2Panel2.Controls.Add(this.txtTenSP2);
             this.guna2Panel2.Controls.Add(this.txtMaSP2);
             this.guna2Panel2.Controls.Add(this.btnSua);
             this.guna2Panel2.Controls.Add(this.btnAnh2);
@@ -650,7 +547,7 @@
             "Ngừng Kinh Doanh"});
             this.cbTrangThai.Location = new System.Drawing.Point(110, 452);
             this.cbTrangThai.Name = "cbTrangThai";
-            this.cbTrangThai.Size = new System.Drawing.Size(229, 36);
+            this.cbTrangThai.Size = new System.Drawing.Size(250, 36);
             this.cbTrangThai.TabIndex = 4;
             // 
             // cbMaNH2
@@ -669,7 +566,7 @@
             this.cbMaNH2.ItemHeight = 30;
             this.cbMaNH2.Location = new System.Drawing.Point(589, 298);
             this.cbMaNH2.Name = "cbMaNH2";
-            this.cbMaNH2.Size = new System.Drawing.Size(229, 36);
+            this.cbMaNH2.Size = new System.Drawing.Size(250, 36);
             this.cbMaNH2.TabIndex = 4;
             // 
             // cbMaNCC2
@@ -688,102 +585,24 @@
             this.cbMaNCC2.ItemHeight = 30;
             this.cbMaNCC2.Location = new System.Drawing.Point(110, 298);
             this.cbMaNCC2.Name = "cbMaNCC2";
-            this.cbMaNCC2.Size = new System.Drawing.Size(229, 36);
+            this.cbMaNCC2.Size = new System.Drawing.Size(250, 36);
             this.cbMaNCC2.TabIndex = 4;
-            // 
-            // txtGiaTien2
-            // 
-            this.txtGiaTien2.Animated = true;
-            this.txtGiaTien2.AutoRoundedCorners = true;
-            this.txtGiaTien2.BorderColor = System.Drawing.Color.Gray;
-            this.txtGiaTien2.BorderRadius = 18;
-            this.txtGiaTien2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtGiaTien2.DefaultText = "";
-            this.txtGiaTien2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtGiaTien2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtGiaTien2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtGiaTien2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtGiaTien2.FillColor = System.Drawing.Color.Gainsboro;
-            this.txtGiaTien2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtGiaTien2.Font = new System.Drawing.Font("UTM Alexander", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGiaTien2.ForeColor = System.Drawing.Color.Black;
-            this.txtGiaTien2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtGiaTien2.Location = new System.Drawing.Point(110, 375);
-            this.txtGiaTien2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtGiaTien2.Name = "txtGiaTien2";
-            this.txtGiaTien2.PasswordChar = '\0';
-            this.txtGiaTien2.PlaceholderText = "";
-            this.txtGiaTien2.SelectedText = "";
-            this.txtGiaTien2.Size = new System.Drawing.Size(229, 39);
-            this.txtGiaTien2.TabIndex = 3;
-            // 
-            // txtMoTa2
-            // 
-            this.txtMoTa2.Animated = true;
-            this.txtMoTa2.BorderColor = System.Drawing.Color.Gray;
-            this.txtMoTa2.BorderRadius = 10;
-            this.txtMoTa2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtMoTa2.DefaultText = "";
-            this.txtMoTa2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtMoTa2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtMoTa2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMoTa2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMoTa2.FillColor = System.Drawing.Color.Gainsboro;
-            this.txtMoTa2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMoTa2.Font = new System.Drawing.Font("UTM Alexander", 9.75F);
-            this.txtMoTa2.ForeColor = System.Drawing.Color.Black;
-            this.txtMoTa2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMoTa2.Location = new System.Drawing.Point(589, 375);
-            this.txtMoTa2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtMoTa2.Multiline = true;
-            this.txtMoTa2.Name = "txtMoTa2";
-            this.txtMoTa2.PasswordChar = '\0';
-            this.txtMoTa2.PlaceholderText = "";
-            this.txtMoTa2.SelectedText = "";
-            this.txtMoTa2.Size = new System.Drawing.Size(388, 200);
-            this.txtMoTa2.TabIndex = 3;
-            // 
-            // txtTenSP2
-            // 
-            this.txtTenSP2.Animated = true;
-            this.txtTenSP2.AutoRoundedCorners = true;
-            this.txtTenSP2.BorderColor = System.Drawing.Color.Gray;
-            this.txtTenSP2.BorderRadius = 16;
-            this.txtTenSP2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTenSP2.DefaultText = "";
-            this.txtTenSP2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtTenSP2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtTenSP2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTenSP2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTenSP2.FillColor = System.Drawing.Color.Gainsboro;
-            this.txtTenSP2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTenSP2.Font = new System.Drawing.Font("UTM Alexander", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenSP2.ForeColor = System.Drawing.Color.Black;
-            this.txtTenSP2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTenSP2.Location = new System.Drawing.Point(589, 214);
-            this.txtTenSP2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtTenSP2.Name = "txtTenSP2";
-            this.txtTenSP2.PasswordChar = '\0';
-            this.txtTenSP2.PlaceholderText = "";
-            this.txtTenSP2.SelectedText = "";
-            this.txtTenSP2.Size = new System.Drawing.Size(229, 34);
-            this.txtTenSP2.TabIndex = 3;
             // 
             // txtMaSP2
             // 
             this.txtMaSP2.Animated = true;
             this.txtMaSP2.AutoRoundedCorners = true;
             this.txtMaSP2.BorderColor = System.Drawing.Color.Gray;
-            this.txtMaSP2.BorderRadius = 16;
+            this.txtMaSP2.BorderRadius = 21;
             this.txtMaSP2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMaSP2.DefaultText = "";
             this.txtMaSP2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtMaSP2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtMaSP2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtMaSP2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMaSP2.FillColor = System.Drawing.Color.Gainsboro;
+            this.txtMaSP2.FillColor = System.Drawing.Color.Silver;
             this.txtMaSP2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaSP2.Font = new System.Drawing.Font("UTM Alexander", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaSP2.Font = new System.Drawing.Font("UTM Alexander", 9.75F);
             this.txtMaSP2.ForeColor = System.Drawing.Color.Black;
             this.txtMaSP2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMaSP2.Location = new System.Drawing.Point(110, 214);
@@ -793,7 +612,7 @@
             this.txtMaSP2.PlaceholderText = "";
             this.txtMaSP2.ReadOnly = true;
             this.txtMaSP2.SelectedText = "";
-            this.txtMaSP2.Size = new System.Drawing.Size(229, 34);
+            this.txtMaSP2.Size = new System.Drawing.Size(250, 44);
             this.txtMaSP2.TabIndex = 3;
             // 
             // btnSua
@@ -949,6 +768,174 @@
             // 
             this.guna2Elipse7.BorderRadius = 25;
             // 
+            // txtMaSP
+            // 
+            this.txtMaSP.Animated = true;
+            this.txtMaSP.AutoRoundedCorners = true;
+            this.txtMaSP.BorderRadius = 22;
+            this.txtMaSP.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txtMaSP.DefaultText = "";
+            this.txtMaSP.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtMaSP.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtMaSP.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMaSP.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMaSP.FillColor = System.Drawing.Color.Silver;
+            this.txtMaSP.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMaSP.Font = new System.Drawing.Font("UTM Alexander", 9F);
+            this.txtMaSP.ForeColor = System.Drawing.Color.Black;
+            this.txtMaSP.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMaSP.Location = new System.Drawing.Point(119, 223);
+            this.txtMaSP.Name = "txtMaSP";
+            this.txtMaSP.PasswordChar = '\0';
+            this.txtMaSP.PlaceholderText = "";
+            this.txtMaSP.SelectedText = "";
+            this.txtMaSP.Size = new System.Drawing.Size(250, 46);
+            this.txtMaSP.TabIndex = 5;
+            // 
+            // txtGiaTien
+            // 
+            this.txtGiaTien.Animated = true;
+            this.txtGiaTien.AutoRoundedCorners = true;
+            this.txtGiaTien.BorderRadius = 22;
+            this.txtGiaTien.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txtGiaTien.DefaultText = "";
+            this.txtGiaTien.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtGiaTien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtGiaTien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtGiaTien.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtGiaTien.FillColor = System.Drawing.Color.Silver;
+            this.txtGiaTien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtGiaTien.Font = new System.Drawing.Font("UTM Alexander", 9F);
+            this.txtGiaTien.ForeColor = System.Drawing.Color.Black;
+            this.txtGiaTien.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtGiaTien.Location = new System.Drawing.Point(119, 410);
+            this.txtGiaTien.Name = "txtGiaTien";
+            this.txtGiaTien.PasswordChar = '\0';
+            this.txtGiaTien.PlaceholderText = "";
+            this.txtGiaTien.SelectedText = "";
+            this.txtGiaTien.Size = new System.Drawing.Size(250, 46);
+            this.txtGiaTien.TabIndex = 6;
+            // 
+            // txtTenSP
+            // 
+            this.txtTenSP.Animated = true;
+            this.txtTenSP.AutoRoundedCorners = true;
+            this.txtTenSP.BorderRadius = 22;
+            this.txtTenSP.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txtTenSP.DefaultText = "";
+            this.txtTenSP.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtTenSP.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtTenSP.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTenSP.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTenSP.FillColor = System.Drawing.Color.Silver;
+            this.txtTenSP.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTenSP.Font = new System.Drawing.Font("UTM Alexander", 9F);
+            this.txtTenSP.ForeColor = System.Drawing.Color.Black;
+            this.txtTenSP.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTenSP.Location = new System.Drawing.Point(598, 233);
+            this.txtTenSP.Name = "txtTenSP";
+            this.txtTenSP.PasswordChar = '\0';
+            this.txtTenSP.PlaceholderText = "";
+            this.txtTenSP.SelectedText = "";
+            this.txtTenSP.Size = new System.Drawing.Size(250, 46);
+            this.txtTenSP.TabIndex = 7;
+            // 
+            // txtMoTa
+            // 
+            this.txtMoTa.Animated = true;
+            this.txtMoTa.BorderRadius = 15;
+            this.txtMoTa.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txtMoTa.DefaultText = "";
+            this.txtMoTa.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtMoTa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtMoTa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMoTa.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMoTa.FillColor = System.Drawing.Color.Silver;
+            this.txtMoTa.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMoTa.Font = new System.Drawing.Font("UTM Alexander", 9F);
+            this.txtMoTa.ForeColor = System.Drawing.Color.Black;
+            this.txtMoTa.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMoTa.Location = new System.Drawing.Point(598, 410);
+            this.txtMoTa.Multiline = true;
+            this.txtMoTa.Name = "txtMoTa";
+            this.txtMoTa.PasswordChar = '\0';
+            this.txtMoTa.PlaceholderText = "";
+            this.txtMoTa.SelectedText = "";
+            this.txtMoTa.Size = new System.Drawing.Size(375, 185);
+            this.txtMoTa.TabIndex = 8;
+            // 
+            // txtGiaTien2
+            // 
+            this.txtGiaTien2.Animated = true;
+            this.txtGiaTien2.AutoRoundedCorners = true;
+            this.txtGiaTien2.BorderRadius = 22;
+            this.txtGiaTien2.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txtGiaTien2.DefaultText = "";
+            this.txtGiaTien2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtGiaTien2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtGiaTien2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtGiaTien2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtGiaTien2.FillColor = System.Drawing.Color.Silver;
+            this.txtGiaTien2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtGiaTien2.Font = new System.Drawing.Font("UTM Alexander", 9F);
+            this.txtGiaTien2.ForeColor = System.Drawing.Color.Black;
+            this.txtGiaTien2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtGiaTien2.Location = new System.Drawing.Point(110, 371);
+            this.txtGiaTien2.Name = "txtGiaTien2";
+            this.txtGiaTien2.PasswordChar = '\0';
+            this.txtGiaTien2.PlaceholderText = "";
+            this.txtGiaTien2.SelectedText = "";
+            this.txtGiaTien2.Size = new System.Drawing.Size(250, 46);
+            this.txtGiaTien2.TabIndex = 6;
+            // 
+            // txtTenSP2
+            // 
+            this.txtTenSP2.Animated = true;
+            this.txtTenSP2.AutoRoundedCorners = true;
+            this.txtTenSP2.BorderRadius = 22;
+            this.txtTenSP2.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txtTenSP2.DefaultText = "";
+            this.txtTenSP2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtTenSP2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtTenSP2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTenSP2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTenSP2.FillColor = System.Drawing.Color.Silver;
+            this.txtTenSP2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTenSP2.Font = new System.Drawing.Font("UTM Alexander", 9F);
+            this.txtTenSP2.ForeColor = System.Drawing.Color.Black;
+            this.txtTenSP2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTenSP2.Location = new System.Drawing.Point(589, 214);
+            this.txtTenSP2.Name = "txtTenSP2";
+            this.txtTenSP2.PasswordChar = '\0';
+            this.txtTenSP2.PlaceholderText = "";
+            this.txtTenSP2.SelectedText = "";
+            this.txtTenSP2.Size = new System.Drawing.Size(250, 46);
+            this.txtTenSP2.TabIndex = 7;
+            // 
+            // guna2TextBox1
+            // 
+            this.guna2TextBox1.Animated = true;
+            this.guna2TextBox1.BorderRadius = 15;
+            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.guna2TextBox1.DefaultText = "";
+            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.FillColor = System.Drawing.Color.Silver;
+            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.Font = new System.Drawing.Font("UTM Alexander", 9F);
+            this.guna2TextBox1.ForeColor = System.Drawing.Color.Black;
+            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.Location = new System.Drawing.Point(589, 374);
+            this.guna2TextBox1.Multiline = true;
+            this.guna2TextBox1.Name = "guna2TextBox1";
+            this.guna2TextBox1.PasswordChar = '\0';
+            this.guna2TextBox1.PlaceholderText = "";
+            this.guna2TextBox1.SelectedText = "";
+            this.guna2TextBox1.Size = new System.Drawing.Size(384, 221);
+            this.guna2TextBox1.TabIndex = 8;
+            // 
             // FQuanlysanpham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -956,7 +943,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(201)))), ((int)(((byte)(234)))));
             this.ClientSize = new System.Drawing.Size(1111, 720);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FQuanlysanpham";
@@ -990,10 +976,6 @@
         private Guna.UI2.WinForms.Guna2Panel panelContainer;
         private Guna.UI2.WinForms.Guna2ComboBox cbMaNH;
         private Guna.UI2.WinForms.Guna2ComboBox cbMaNCC;
-        private Guna.UI2.WinForms.Guna2TextBox txtGiaTien;
-        private Guna.UI2.WinForms.Guna2TextBox txtMota;
-        private Guna.UI2.WinForms.Guna2TextBox txtTenSP;
-        private Guna.UI2.WinForms.Guna2TextBox txtMaSP;
         private Guna.UI2.WinForms.Guna2Button btnThemLK;
         private Guna.UI2.WinForms.Guna2Button btnHinhAnh;
         private Guna.UI2.WinForms.Guna2PictureBox ptbHinhAnh;
@@ -1012,9 +994,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbTrangThai;
         private Guna.UI2.WinForms.Guna2ComboBox cbMaNH2;
         private Guna.UI2.WinForms.Guna2ComboBox cbMaNCC2;
-        private Guna.UI2.WinForms.Guna2TextBox txtGiaTien2;
-        private Guna.UI2.WinForms.Guna2TextBox txtMoTa2;
-        private Guna.UI2.WinForms.Guna2TextBox txtTenSP2;
         private Guna.UI2.WinForms.Guna2TextBox txtMaSP2;
         private Guna.UI2.WinForms.Guna2Button btnSua;
         private Guna.UI2.WinForms.Guna2Button btnAnh2;
@@ -1031,5 +1010,12 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse7;
         private Guna.UI2.WinForms.Guna2TextBox txtTimNhom;
         private Guna.UI2.WinForms.Guna2TextBox txtTimGia;
+        private Guna.UI2.WinForms.Guna2TextBox txtMaSP;
+        private Guna.UI2.WinForms.Guna2TextBox txtMoTa;
+        private Guna.UI2.WinForms.Guna2TextBox txtTenSP;
+        private Guna.UI2.WinForms.Guna2TextBox txtGiaTien;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox txtTenSP2;
+        private Guna.UI2.WinForms.Guna2TextBox txtGiaTien2;
     }
 }

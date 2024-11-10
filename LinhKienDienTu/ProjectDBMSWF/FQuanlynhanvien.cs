@@ -31,7 +31,6 @@ namespace ProjectDBMSWF
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dgvDanhSachNV.DataSource = dt;
-                MessageBox.Show("Ket noi thanh cong");
             }
             catch (Exception ex)
             {
@@ -104,7 +103,11 @@ namespace ProjectDBMSWF
                 {
                     MessageBox.Show("Thêm thành công");
                 }
-
+                
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Message);
             }
             catch (Exception ex)
             {
@@ -114,6 +117,7 @@ namespace ProjectDBMSWF
             {
                 sqlCon.Close();
             }
+            FQuanlynhanvien_Load(sender, e);
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -121,9 +125,9 @@ namespace ProjectDBMSWF
             try
             {
                 sqlCon.Open();
-                string proc = String.Format("Execute nv_deleteNhanVien @MaNV");
+                string proc = String.Format("Execute [dbo].[nv_deleteNhanVien] @MaNV");
                 SqlCommand cmd = new SqlCommand(proc, sqlCon.GetConnection());
-                cmd.Parameters.AddWithValue("@MaNV", txtNhap.Text);
+                cmd.Parameters.AddWithValue("@MaNV", txtMaNV.Text);
                 if (cmd.ExecuteNonQuery() > 0)
                 {
                     MessageBox.Show("Xoá thành công");
@@ -142,6 +146,7 @@ namespace ProjectDBMSWF
             {
                 sqlCon.Close();
             }
+            FQuanlynhanvien_Load(sender, e);
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -172,6 +177,7 @@ namespace ProjectDBMSWF
             {
                 sqlCon.Close();
             }
+            FQuanlynhanvien_Load(sender, e);
         }
 
         private void btnReload_Click(object sender, EventArgs e)

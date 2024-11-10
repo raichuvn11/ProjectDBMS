@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,9 +16,13 @@ namespace ProjectDBMSWF
     public partial class FDangnhap : Form
     {
         ConnectDB cnt = new ConnectDB(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LinhKienDienTu2;Integrated Security=True");
+        public static String MaNV;
+        public static String SĐT;
         public FDangnhap()
         {
             InitializeComponent();
+            panel1.Hide();
+            panel2.Hide();
         }
 
         private void guna2ImageButton1_Click(object sender, EventArgs e)
@@ -34,36 +39,86 @@ namespace ProjectDBMSWF
         {
             if (btnNvien.Checked == true)
             {
-                
-                    try
-                    {
-                        cnt.Open();
-                        using (SqlCommand cmd = new SqlCommand("SELECT MaNV FROM fn_GetMaNV_BySDT(@MaNV)",cnt.GetConnection()))
-                        {
-                            
-                            cmd.Parameters.AddWithValue("@MaNV", txbLogin.Text);
+                MaNV = txtMaNV.Text;
+                SĐT = txtSĐT.Text;
 
-                            object result = cmd.ExecuteScalar();
-                            if (result != null)
-                            {
-                                FNhanvien.maNV = result.ToString();
-                                FNhanvien f = new FNhanvien();
-                                f.Show();
-                                this.Hide();
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Đăng nhập thất bại");
-                    }           
+                if (AuthenticateUser(MaNV, SĐT))
+                {
+                    MessageBox.Show("Đăng nhập thành công");
+                    FNhanvien f = new FNhanvien();
+                    FNhanvien.maNV =MaNV;
+                    f.Show();
+                    this.Hide();
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Đăng nhập thất bại");
+                }
             }
-            else if (btnQly.Checked == true && txbLogin.Text == "admin")
+            else if (btnQly.Checked == true && txbLoginAdmin.Text == "admin")
             {
                 this.Hide(); 
                 FQuanly f = new FQuanly();
                 f.Show();
             }
+        }
+
+        private bool AuthenticateUser(string maNV, string sdt)
+        {
+            bool isAuthenticated = false;
+           
+                try
+                {
+                    cnt.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT [dbo].[sp_CheckLogin](@MaNV, @SDT)", cnt.GetConnection());
+                    cmd.Parameters.AddWithValue("@MaNV", maNV);
+                    cmd.Parameters.AddWithValue("@SDT", sdt);
+
+                    isAuthenticated = (bool)cmd.ExecuteScalar();
+                }
+                catch (SqlException sqlEx)
+                {
+                    MessageBox.Show(sqlEx.Message);
+                }
+            catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi:" + ex.Message);
+                }
+                finally
+                {
+                    cnt.Close();
+                }
+
+            return isAuthenticated;
+        }
+  
+        private void btnNvien_Click(object sender, EventArgs e)
+        {
+            panel1.Hide();
+            panel2.Show();
+        }
+
+        private void btnQly_Click(object sender, EventArgs e)
+        {
+            panel1.Show();
+            panel2.Hide();
+        }
+
+        private void pnlLogin_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void txbLoginAdmin_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FDangnhap_Load(object sender, EventArgs e)
+        {
+            panel1.Hide();
+            panel2.Hide();
         }
     }
 }

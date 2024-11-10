@@ -31,10 +31,8 @@ namespace ProjectDBMSWF
             {
                 cnt.Open();
 
-                // Câu lệnh SQL để lấy dữ liệu từ View
                 string query = "SELECT * FROM ViewSanPham";
 
-                // Khởi tạo SqlCommand
                 using (SqlCommand cmd = new SqlCommand(query, cnt.GetConnection()))
                 {
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -59,7 +57,7 @@ namespace ProjectDBMSWF
             }
             finally
             {
-                cnt.Close(); // Đóng kết nối
+                cnt.Close();
             }
         }
 
@@ -76,35 +74,26 @@ namespace ProjectDBMSWF
         }
         public void LoadNhaCungCapToComboBox(ComboBox comboBox)
         {
-            // Câu lệnh SQL để lấy dữ liệu từ bảng NhaCungCap
             string query = "SELECT MaNCC, TenNhaCungCap FROM NhaCungCap";
 
-            // Mở kết nối
             try
             {
                 cnt.Open();
 
-                // Khởi tạo SqlCommand
                 using (SqlCommand cmd = new SqlCommand(query, cnt.GetConnection()))
                 {
-                    // Tạo SqlDataAdapter để lấy dữ liệu
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     DataTable dataTable = new DataTable();
 
-                    // Lấp dữ liệu vào DataTable
                     adapter.Fill(dataTable);
 
-                    // Xóa các mục hiện có trong ComboBox
                     comboBox.Items.Clear();
 
-                    // Thêm các mục vào ComboBox
                     foreach (DataRow row in dataTable.Rows)
                     {
-                        // Thêm tên nhà cung cấp vào ComboBox
                         comboBox.Items.Add(new { Text = row["TenNhaCungCap"].ToString(), Value = row["MaNCC"] });
                     }
 
-                    // Đặt thuộc tính DisplayMember và ValueMember
                     comboBox.DisplayMember = "Text";
                     comboBox.ValueMember = "Value";
                 }
@@ -115,41 +104,28 @@ namespace ProjectDBMSWF
             }
             finally
             {
-                // Đóng kết nối
                 cnt.Close();
             }
         }
         public void LoadNhomLinhKienToComboBox(ComboBox comboBox)
         {
-            // Câu lệnh SQL để lấy dữ liệu từ bảng NhomLinhKien
             string query = "SELECT MaNhom, TenNhom FROM NhomLinhKien";
 
-            // Mở kết nối
             try
             {
                 cnt.Open();
 
-                // Khởi tạo SqlCommand
                 using (SqlCommand cmd = new SqlCommand(query, cnt.GetConnection()))
                 {
-                    // Tạo SqlDataAdapter để lấy dữ liệu
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     DataTable dataTable = new DataTable();
-
-                    // Lấp dữ liệu vào DataTable
                     adapter.Fill(dataTable);
-
-                    // Xóa các mục hiện có trong ComboBox
                     comboBox.Items.Clear();
-
-                    // Thêm các mục vào ComboBox
                     foreach (DataRow row in dataTable.Rows)
                     {
-                        // Thêm tên nhóm linh kiện vào ComboBox
                         comboBox.Items.Add(new { Text = row["TenNhom"].ToString(), Value = row["MaNhom"] });
                     }
 
-                    // Đặt thuộc tính DisplayMember và ValueMember
                     comboBox.DisplayMember = "Text";
                     comboBox.ValueMember = "Value";
                 }
@@ -160,7 +136,6 @@ namespace ProjectDBMSWF
             }
             finally
             {
-                // Đóng kết nối
                 cnt.Close();
             }
         }
@@ -174,20 +149,23 @@ namespace ProjectDBMSWF
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Lấy đường dẫn đến hình ảnh
                     string filePath = openFileDialog.FileName;
-                    selectedImage = Image.FromFile(filePath); // Tải hình ảnh vào biến
-                    ptbHinhAnh.Image = selectedImage; // Hiển thị hình ảnh trong PictureBox
+                    selectedImage = Image.FromFile(filePath); 
+                    ptbHinhAnh.Image = selectedImage; 
                 }
             }
         }
 
         private void btnThemLK_Click(object sender, EventArgs e)
         {
-            byte[] hinhAnhBytes = ImageToByteArray(ptbHinhAnh.Image);
-
             try
             {
+                byte[] hinhAnhBytes = null;
+
+                if (ptbHinhAnh.Image != null)
+                {
+                    hinhAnhBytes = ImageToByteArray(ptbHinhAnh.Image);
+                }
 
                 cnt.Open();
 
@@ -195,46 +173,74 @@ namespace ProjectDBMSWF
                 {
                     command.CommandType = CommandType.StoredProcedure;
 
-
                     command.Parameters.AddWithValue("@MaLK", txtMaSP.Text);
                     command.Parameters.AddWithValue("@TenLK", txtTenSP.Text);
                     command.Parameters.AddWithValue("@GiaTien", txtGiaTien.Text);
-                    command.Parameters.AddWithValue("@MoTa", txtMota.Text);
+                    command.Parameters.AddWithValue("@MoTa", txtMoTa.Text);
                     command.Parameters.AddWithValue("@SoLuong", 0);
                     command.Parameters.AddWithValue("@TrangThai", "Đang Bán");
-                    command.Parameters.AddWithValue("@HinhAnh", (object)hinhAnhBytes ?? DBNull.Value); // Nếu không có hình ảnh, sử dụng DBNull
+                    command.Parameters.AddWithValue("@HinhAnh", (object)hinhAnhBytes ?? Encoding.Unicode.GetBytes(DBNull.Value.ToString()));
+
                     if (cbMaNH.SelectedItem != null)
                     {
-                        var selectedItem = (dynamic)cbMaNH.SelectedItem;
-                        string selectedId = selectedItem.Value;
-                        command.Parameters.AddWithValue("@MaNhom", selectedId);
+                        var selectedItem = cbMaNH.SelectedItem as dynamic;
+                        if (selectedItem != null && selectedItem.Value != null)
+                        {
+                            string selectedId = selectedItem.Value;
+                            command.Parameters.AddWithValue("@MaNhom", selectedId);
+                        }
+                        else
+                        {
+                            command.Parameters.AddWithValue("@MaNhom", DBNull.Value);
+                        }
                     }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@MaNhom", DBNull.Value);
+                    }
+
                     if (cbMaNCC.SelectedItem != null)
                     {
-                        var selectedItem = (dynamic)cbMaNCC.SelectedItem;
-                        string selectedId = selectedItem.Value;
-                        command.Parameters.AddWithValue("@MaNCC", selectedId);
+                        var selectedItem = cbMaNCC.SelectedItem as dynamic;
+                        if (selectedItem != null && selectedItem.Value != null)
+                        {
+                            string selectedId = selectedItem.Value;
+                            command.Parameters.AddWithValue("@MaNCC", selectedId);
+                        }
+                        else
+                        {
+                            command.Parameters.AddWithValue("@MaNCC", DBNull.Value);
+                        }
                     }
-                    
-                  int result = command.ExecuteNonQuery();
+                    else
+                    {
+                        command.Parameters.AddWithValue("@MaNCC", DBNull.Value);
+                    }
 
+                    int result = command.ExecuteNonQuery();
+                    MessageBox.Show("Thêm sản phẩm thành công!");
                 }
-                MessageBox.Show("Thêm sản phẩm thành công!");
-
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi: " + ex.Message);
-
+            }
+            finally
+            {
+               cnt.Close();
             }
             FQuanlysanpham_Load(sender, e);
         }
-        private byte[] ImageToByteArray(Image imageIn)
+        private byte[] ImageToByteArray(Image image)
         {
-            using (MemoryStream ms = new MemoryStream())
+            using (var ms = new MemoryStream())
             {
-                imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Png); // Lưu ảnh vào MemoryStream
-                return ms.ToArray(); // Trả về mảng byte của ảnh
+                image.Save(ms, image.RawFormat);
+                return ms.ToArray(); 
             }
         }
 
@@ -252,7 +258,7 @@ namespace ProjectDBMSWF
                 txtMaSP2.Text = row.Cells["MaLK"].Value.ToString();
                 txtTenSP2.Text = row.Cells["TenLK"].Value.ToString();
                 txtGiaTien2.Text = row.Cells["GiaTien"].Value.ToString();
-                txtMoTa2.Text = row.Cells["MoTa"].Value.ToString();
+                guna2TextBox1.Text = row.Cells["MoTa"].Value.ToString();
                 cbTrangThai.Text = row.Cells["TrangThai"].Value.ToString();
                 cbMaNH2.Text = row.Cells["TenNhom"].Value.ToString();
                 cbMaNCC2.Text = row.Cells["TenNhaCungCap"].Value.ToString();
@@ -286,10 +292,9 @@ namespace ProjectDBMSWF
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Lấy đường dẫn đến hình ảnh
                     string filePath = openFileDialog.FileName;
-                    selectedImage = Image.FromFile(filePath); // Tải hình ảnh vào biến
-                    ptbHinhAnh2.Image = selectedImage; // Hiển thị hình ảnh trong PictureBox
+                    selectedImage = Image.FromFile(filePath);
+                    ptbHinhAnh2.Image = selectedImage; 
                 }
             }
         }
@@ -311,7 +316,7 @@ namespace ProjectDBMSWF
                     command.Parameters.AddWithValue("@MaLK", txtMaSP2.Text);
                     command.Parameters.AddWithValue("@TenLK", txtTenSP2.Text);
                     command.Parameters.AddWithValue("@GiaTien", txtGiaTien2.Text);
-                    command.Parameters.AddWithValue("@MoTa", txtMoTa2.Text);
+                    command.Parameters.AddWithValue("@MoTa", guna2TextBox1.Text);
                     command.Parameters.AddWithValue("@SoLuong", soluong);
                     command.Parameters.AddWithValue("@TrangThai", cbTrangThai.Text);
                     command.Parameters.AddWithValue("@HinhAnh", (object)hinhAnhBytes ?? DBNull.Value); 
@@ -333,6 +338,10 @@ namespace ProjectDBMSWF
                 }
                 MessageBox.Show("Sửa sản phẩm thành công!");
 
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Message);
             }
             catch (Exception ex)
             {

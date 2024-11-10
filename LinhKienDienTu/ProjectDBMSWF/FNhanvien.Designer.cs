@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbl_Ten = new System.Windows.Forms.Label();
             this.btnDangxuat = new Guna.UI2.WinForms.Guna2Button();
             this.btnDoanhthu = new Guna.UI2.WinForms.Guna2Button();
             this.btnXuly = new Guna.UI2.WinForms.Guna2Button();
@@ -39,7 +38,6 @@
             this.btnLinhkien = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Separator3 = new Guna.UI2.WinForms.Guna2Separator();
             this.guna2Separator4 = new Guna.UI2.WinForms.Guna2Separator();
-            this.lbl_maNV = new System.Windows.Forms.Label();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.PanelContain = new Guna.UI2.WinForms.Guna2Panel();
             this.panelMenu = new Guna.UI2.WinForms.Guna2ShadowPanel();
@@ -71,18 +69,6 @@
             this.label1.Size = new System.Drawing.Size(95, 22);
             this.label1.TabIndex = 21;
             this.label1.Text = "Ca làm việc:";
-            // 
-            // lbl_Ten
-            // 
-            this.lbl_Ten.AutoSize = true;
-            this.lbl_Ten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(201)))), ((int)(((byte)(234)))));
-            this.lbl_Ten.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.lbl_Ten.Location = new System.Drawing.Point(81, 27);
-            this.lbl_Ten.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_Ten.Name = "lbl_Ten";
-            this.lbl_Ten.Size = new System.Drawing.Size(104, 18);
-            this.lbl_Ten.TabIndex = 27;
-            this.lbl_Ten.Text = "Nguyễn Văn A ";
             // 
             // btnDangxuat
             // 
@@ -228,17 +214,6 @@
             this.guna2Separator4.Size = new System.Drawing.Size(200, 10);
             this.guna2Separator4.TabIndex = 15;
             // 
-            // lbl_maNV
-            // 
-            this.lbl_maNV.AutoSize = true;
-            this.lbl_maNV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(201)))), ((int)(((byte)(234)))));
-            this.lbl_maNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_maNV.Location = new System.Drawing.Point(81, 55);
-            this.lbl_maNV.Name = "lbl_maNV";
-            this.lbl_maNV.Size = new System.Drawing.Size(22, 18);
-            this.lbl_maNV.TabIndex = 13;
-            this.lbl_maNV.Text = "ID";
-            // 
             // guna2Elipse1
             // 
             this.guna2Elipse1.BorderRadius = 25;
@@ -253,7 +228,6 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.panelMenu.Controls.Add(this.lbl_Ten);
             this.panelMenu.Controls.Add(this.btnDangxuat);
             this.panelMenu.Controls.Add(this.btnChamcong);
             this.panelMenu.Controls.Add(this.btnDoanhthu);
@@ -262,7 +236,6 @@
             this.panelMenu.Controls.Add(this.btnLinhkien);
             this.panelMenu.Controls.Add(this.guna2Separator3);
             this.panelMenu.Controls.Add(this.guna2Separator4);
-            this.panelMenu.Controls.Add(this.lbl_maNV);
             this.panelMenu.Controls.Add(this.ptb_avatar);
             this.panelMenu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(201)))), ((int)(((byte)(234)))));
             this.panelMenu.Location = new System.Drawing.Point(3, -4);
@@ -304,7 +277,7 @@
             this.ptb_avatar.BackColor = System.Drawing.Color.Transparent;
             this.ptb_avatar.Image = global::ProjectDBMSWF.Properties.Resources.user;
             this.ptb_avatar.ImageRotate = 0F;
-            this.ptb_avatar.Location = new System.Drawing.Point(14, 27);
+            this.ptb_avatar.Location = new System.Drawing.Point(88, 27);
             this.ptb_avatar.Name = "ptb_avatar";
             this.ptb_avatar.Size = new System.Drawing.Size(50, 48);
             this.ptb_avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -347,7 +320,6 @@
             this.Text = "FNhanvien";
             this.Load += new System.EventHandler(this.FNhanvien_Load);
             this.panelMenu.ResumeLayout(false);
-            this.panelMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_avatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -359,7 +331,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2ImageButton btnClose;
-        private System.Windows.Forms.Label lbl_Ten;
         private Guna.UI2.WinForms.Guna2Button btnDangxuat;
         private Guna.UI2.WinForms.Guna2Button btnChamcong;
         private Guna.UI2.WinForms.Guna2Button btnDoanhthu;
@@ -368,7 +339,6 @@
         private Guna.UI2.WinForms.Guna2Button btnLinhkien;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator3;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator4;
-        public System.Windows.Forms.Label lbl_maNV;
         private Guna.UI2.WinForms.Guna2PictureBox ptb_avatar;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Panel PanelContain;

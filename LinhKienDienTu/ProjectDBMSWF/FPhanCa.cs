@@ -74,6 +74,10 @@ namespace ProjectDBMSWF
                     MessageBox.Show("Thêm Thành Công");
                 }
             }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Message);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show("Error loading data: " + ex.Message);
@@ -103,6 +107,10 @@ namespace ProjectDBMSWF
                 adapter.Fill(dataTable);
 
                 gvBangca.DataSource = dataTable;
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Message);
             }
             catch (Exception ex)
             {
@@ -205,9 +213,20 @@ namespace ProjectDBMSWF
                     cmd.CommandType = CommandType.StoredProcedure;
                     if (cbNhanVien.SelectedItem != null)
                     {
-                        var selectedItem = (dynamic)cbNhanVien.SelectedItem;
-                        string selectedId = selectedItem.Value;
-                        cmd.Parameters.AddWithValue("@MaNhanVien", selectedId);
+                        var selectedItem = cbNhanVien.SelectedItem as dynamic;
+                        if (selectedItem != null && selectedItem.Value != null)
+                        {
+                            string selectedId = selectedItem.Value;
+                            cmd.Parameters.AddWithValue("@MaNhanVien", selectedId);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@MaNhanVien", DBNull.Value);
+                        }
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@MaNhanVien", DBNull.Value);
                     }
                     cmd.Parameters.AddWithValue("@MaCa", Maca);
 
@@ -221,6 +240,10 @@ namespace ProjectDBMSWF
                         MessageBox.Show("Phân ca đã tồn tại!");
                     }
                 }
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Message);
             }
             catch (Exception ex)
             {
@@ -275,6 +298,10 @@ namespace ProjectDBMSWF
                         MessageBox.Show("Không tìm thấy phân ca để xóa!");
                     }
                 }
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Message);
             }
             catch (Exception ex)
             {

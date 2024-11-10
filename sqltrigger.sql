@@ -1,4 +1,4 @@
-﻿-- Trigger tự động tạo mã khách hàng khi insert vào bảng 
+﻿--Trigger tự động tạo mã khách hàng
 CREATE TRIGGER tg_genCustomerID
 ON KhachHang
 INSTEAD OF INSERT
@@ -17,32 +17,13 @@ AS
 BEGIN
     INSERT INTO CaLamViec (MaCa, TenCa, Ngay, ThoiGianBD, ThoiGianKT)
     SELECT 
-        -- Tạo mã ca làm việc với 10 ký tự: CA + ngày (yyMMdd) + chữ cái đầu tiên của TenCa
+        
         LEFT(CONCAT('CA', FORMAT(i.Ngay, 'yyMMdd'), SUBSTRING(i.TenCa, 1, 1)), 10) AS MaCa,
         i.TenCa,
         i.Ngay,
         i.ThoiGianBD,
         i.ThoiGianKT
     FROM inserted i;
-END;
-GO
---Trigger cập nhập số lượng linh kiện của bảng nhóm linh kiện
-CREATE TRIGGER trg_UpdateSoLuongNhomLK
-ON LinhKien
-AFTER INSERT, UPDATE, DELETE
-AS
-BEGIN
-    UPDATE NhomLinhKien
-    SET SoLuongLK = (
-        SELECT ISNULL(SUM(lk.SoLuong), 0)
-        FROM LinhKien lk
-        WHERE lk.MaNhom = NhomLinhKien.MaNhom
-    )
-    WHERE MaNhom IN (
-        SELECT MaNhom FROM inserted
-        UNION
-        SELECT MaNhom FROM deleted
-    );
 END;
 GO
 --Trigger tự động tạo mã nhà cung cấp
@@ -60,6 +41,28 @@ BEGIN
     INSERT INTO NhaCungCap (MaNCC, TenNhaCungCap, SDT, DiaChi)
     SELECT @MaNCC, TenNhaCungCap, SDT, DiaChi
     FROM inserted;
+END;
+GO
+--Trigger tự động tạo mã đơn nhập khi thêm đơn nhập hàng
+CREATE TRIGGER trg_genMaDonNhap
+ON DonNhapHang
+INSTEAD OF INSERT 
+AS
+BEGIN
+    INSERT INTO DonNhapHang (MaDonNhap, NgayNhap, MaNCC, GiaTriDonNhap)
+    SELECT RTRIM(i.MaNCC) + '_' + FORMAT(i.NgayNhap,'yyMMdd'), i.NgayNhap, i.MaNCC, i.GiaTriDonNhap
+    FROM inserted i;
+END;
+GO
+--Trigger tự động tạo mã hóa đơn
+CREATE TRIGGER trg_genMaHD
+ON HoaDon
+INSTEAD OF INSERT 
+AS
+BEGIN
+    INSERT INTO HoaDon(MaHD, NgayXuat, TongGiaTri, MaKH, MaNV)
+    SELECT RTRIM(i.MaKH) + '_' + RTRIM(i.MaNV) + '_' + FORMAT(i.NgayXuat,'yyMMdd'), i.NgayXuat, i.TongGiaTri, i.MaKH, i.MaNV
+    FROM inserted i;
 END;
 GO
 --Trigger Tự Động Cập Nhật Tổng Giá Trị Đơn Nhập khi xóa
@@ -86,29 +89,7 @@ BEGIN
     INNER JOIN inserted u ON d.MaDonNhap = u.MaDonNhap;
 END
 GO
--- Trigger tự động tạo mã đơn nhập khi thêm đơn nhập hàng
-CREATE TRIGGER trg_genMaDonNhap
-ON DonNhapHang
-INSTEAD OF INSERT 
-AS
-BEGIN
-    INSERT INTO DonNhapHang (MaDonNhap, NgayNhap, MaNCC, GiaTriDonNhap)
-    SELECT RTRIM(i.MaNCC) + '_' + FORMAT(i.NgayNhap,'yyMMdd'), i.NgayNhap, i.MaNCC, i.GiaTriDonNhap
-    FROM inserted i;
-END;
-GO
--- Trigger tự động tạo mã hóa đơn
-CREATE TRIGGER trg_genMaHD
-ON HoaDon
-INSTEAD OF INSERT 
-AS
-BEGIN
-    INSERT INTO HoaDon(MaHD, NgayXuat, TongGiaTri, MaKH, MaNV)
-    SELECT RTRIM(i.MaKH) + '_' + RTRIM(i.MaNV) + '_' + FORMAT(i.NgayXuat,'yyMMdd'), i.NgayXuat, i.TongGiaTri, i.MaKH, i.MaNV
-    FROM inserted i;
-END;
-GO
--- Trigger cập nhật số lượng linh kiện khi thêm, sửa, xóa dữ liệu vào bảng NhapHang
+--Trigger cập nhật số lượng linh kiện khi thêm, sửa, xóa dữ liệu vào bảng NhapHang
 CREATE TRIGGER trg_UpdateSoLuongLinhKien_NhapHang
 ON NhapHang
 AFTER INSERT, UPDATE, DELETE
@@ -147,4 +128,3 @@ BEGIN
 
 END;
 GO
-

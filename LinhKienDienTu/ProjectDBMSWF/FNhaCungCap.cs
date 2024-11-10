@@ -68,6 +68,10 @@ namespace ProjectDBMSWF
 
                 MessageBox.Show("Thêm nhà cung cấp thành công!");
             }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Message);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi thêm nhà cung cấp: " + ex.Message);
@@ -110,6 +114,10 @@ namespace ProjectDBMSWF
                         MessageBox.Show("Không tìm thấy nhà cung cấp với mã đã cho.");
                     }
                 }
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Message);
             }
             catch (Exception ex)
             {
@@ -160,6 +168,11 @@ namespace ProjectDBMSWF
                     }
                 }
             }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Message);
+            }
+
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi tìm kiếm nhà cung cấp: " + ex.Message);

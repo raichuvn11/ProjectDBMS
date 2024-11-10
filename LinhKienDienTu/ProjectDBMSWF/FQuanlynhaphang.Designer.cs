@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.gvDonNhap = new Guna.UI2.WinForms.Guna2DataGridView();
             this.panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnThemDon = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnBack2 = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -54,10 +55,17 @@
             this.panelContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.txtMaNCC = new Guna.UI2.WinForms.Guna2TextBox();
             this.gvNhapHang = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.btnXoaDonNhap = new Guna.UI2.WinForms.Guna2Button();
             this.btnThemLK = new Guna.UI2.WinForms.Guna2Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnThemDon = new Guna.UI2.WinForms.Guna2Button();
             this.panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.dtNgayNhap = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.cbMaNCC2 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnThemDonNhap = new Guna.UI2.WinForms.Guna2Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnback4 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnBack5 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
@@ -69,13 +77,6 @@
             this.txtSoLuong2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.dtNgayNhap = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.cbMaNCC2 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.btnThemDonNhap = new Guna.UI2.WinForms.Guna2Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnback4 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse5 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
@@ -83,7 +84,6 @@
             this.guna2Elipse7 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse8 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse9 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.btnXoaDonNhap = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.gvDonNhap)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -92,9 +92,9 @@
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvNhapHang)).BeginInit();
             this.panel4.SuspendLayout();
+            this.guna2Panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
-            this.guna2Panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -113,26 +113,26 @@
             this.gvDonNhap.AllowUserToDeleteRows = false;
             this.gvDonNhap.AllowUserToResizeColumns = false;
             this.gvDonNhap.AllowUserToResizeRows = false;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.White;
-            this.gvDonNhap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("UTM Alberta Heavy", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gvDonNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.gvDonNhap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("UTM Alberta Heavy", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gvDonNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.gvDonNhap.ColumnHeadersHeight = 30;
             this.gvDonNhap.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle33.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("UTM Alberta Heavy", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gvDonNhap.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("UTM Alberta Heavy", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvDonNhap.DefaultCellStyle = dataGridViewCellStyle15;
             this.gvDonNhap.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gvDonNhap.Location = new System.Drawing.Point(54, 15);
             this.gvDonNhap.Name = "gvDonNhap";
@@ -172,6 +172,24 @@
             this.panel1.Size = new System.Drawing.Size(1087, 696);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btnThemDon
+            // 
+            this.btnThemDon.Animated = true;
+            this.btnThemDon.AutoRoundedCorners = true;
+            this.btnThemDon.BorderRadius = 21;
+            this.btnThemDon.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemDon.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemDon.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThemDon.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThemDon.Font = new System.Drawing.Font("UTM Alberta Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemDon.ForeColor = System.Drawing.Color.White;
+            this.btnThemDon.Location = new System.Drawing.Point(456, 637);
+            this.btnThemDon.Name = "btnThemDon";
+            this.btnThemDon.Size = new System.Drawing.Size(180, 45);
+            this.btnThemDon.TabIndex = 3;
+            this.btnThemDon.Text = "Thêm Đơn Nhập";
+            this.btnThemDon.Click += new System.EventHandler(this.btnThemDon_Click);
             // 
             // panel2
             // 
@@ -404,27 +422,27 @@
             // 
             // gvNhapHang
             // 
-            dataGridViewCellStyle34.BackColor = System.Drawing.Color.White;
-            this.gvNhapHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle34;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("UTM Alberta Heavy", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gvNhapHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            this.gvNhapHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("UTM Alberta Heavy", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gvNhapHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.gvNhapHang.ColumnHeadersHeight = 30;
             this.gvNhapHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.gvNhapHang.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle36.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("UTM Alexander", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gvNhapHang.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("UTM Alexander", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvNhapHang.DefaultCellStyle = dataGridViewCellStyle18;
             this.gvNhapHang.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gvNhapHang.Location = new System.Drawing.Point(36, 87);
             this.gvNhapHang.Name = "gvNhapHang";
@@ -454,6 +472,28 @@
             this.gvNhapHang.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gvNhapHang.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.gvNhapHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvNhapHang_CellClick);
+            // 
+            // btnXoaDonNhap
+            // 
+            this.btnXoaDonNhap.Animated = true;
+            this.btnXoaDonNhap.AutoRoundedCorners = true;
+            this.btnXoaDonNhap.BackColor = System.Drawing.Color.Transparent;
+            this.btnXoaDonNhap.BorderRadius = 20;
+            this.btnXoaDonNhap.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnXoaDonNhap.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnXoaDonNhap.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnXoaDonNhap.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnXoaDonNhap.FillColor = System.Drawing.Color.Red;
+            this.btnXoaDonNhap.Font = new System.Drawing.Font("UTM Alberta Heavy", 11.25F);
+            this.btnXoaDonNhap.ForeColor = System.Drawing.Color.White;
+            this.btnXoaDonNhap.IndicateFocus = true;
+            this.btnXoaDonNhap.Location = new System.Drawing.Point(515, 26);
+            this.btnXoaDonNhap.Name = "btnXoaDonNhap";
+            this.btnXoaDonNhap.Size = new System.Drawing.Size(130, 42);
+            this.btnXoaDonNhap.TabIndex = 2;
+            this.btnXoaDonNhap.Text = "Xóa Đơn Nhập";
+            this.btnXoaDonNhap.UseTransparentBackground = true;
+            this.btnXoaDonNhap.Click += new System.EventHandler(this.btnXoaDonNhap_Click);
             // 
             // btnThemLK
             // 
@@ -486,24 +526,6 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Mã Nhà Cung Cấp";
             // 
-            // btnThemDon
-            // 
-            this.btnThemDon.Animated = true;
-            this.btnThemDon.AutoRoundedCorners = true;
-            this.btnThemDon.BorderRadius = 21;
-            this.btnThemDon.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnThemDon.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnThemDon.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnThemDon.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnThemDon.Font = new System.Drawing.Font("UTM Alberta Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemDon.ForeColor = System.Drawing.Color.White;
-            this.btnThemDon.Location = new System.Drawing.Point(456, 637);
-            this.btnThemDon.Name = "btnThemDon";
-            this.btnThemDon.Size = new System.Drawing.Size(180, 45);
-            this.btnThemDon.TabIndex = 3;
-            this.btnThemDon.Text = "Thêm Đơn Nhập";
-            this.btnThemDon.Click += new System.EventHandler(this.btnThemDon_Click);
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.guna2Panel3);
@@ -512,6 +534,112 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1087, 696);
             this.panel4.TabIndex = 4;
+            // 
+            // guna2Panel3
+            // 
+            this.guna2Panel3.BackColor = System.Drawing.Color.White;
+            this.guna2Panel3.Controls.Add(this.dtNgayNhap);
+            this.guna2Panel3.Controls.Add(this.cbMaNCC2);
+            this.guna2Panel3.Controls.Add(this.btnThemDonNhap);
+            this.guna2Panel3.Controls.Add(this.label3);
+            this.guna2Panel3.Controls.Add(this.label7);
+            this.guna2Panel3.Location = new System.Drawing.Point(367, 116);
+            this.guna2Panel3.Name = "guna2Panel3";
+            this.guna2Panel3.Size = new System.Drawing.Size(301, 350);
+            this.guna2Panel3.TabIndex = 4;
+            // 
+            // dtNgayNhap
+            // 
+            this.dtNgayNhap.Animated = true;
+            this.dtNgayNhap.AutoRoundedCorners = true;
+            this.dtNgayNhap.BorderRadius = 17;
+            this.dtNgayNhap.Checked = true;
+            this.dtNgayNhap.FillColor = System.Drawing.Color.Gainsboro;
+            this.dtNgayNhap.Font = new System.Drawing.Font("UTM Alexander", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtNgayNhap.Location = new System.Drawing.Point(36, 159);
+            this.dtNgayNhap.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtNgayNhap.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtNgayNhap.Name = "dtNgayNhap";
+            this.dtNgayNhap.Size = new System.Drawing.Size(233, 36);
+            this.dtNgayNhap.TabIndex = 6;
+            this.dtNgayNhap.Value = new System.DateTime(2024, 10, 12, 22, 2, 38, 746);
+            // 
+            // cbMaNCC2
+            // 
+            this.cbMaNCC2.AutoRoundedCorners = true;
+            this.cbMaNCC2.BackColor = System.Drawing.Color.Transparent;
+            this.cbMaNCC2.BorderColor = System.Drawing.Color.DarkGray;
+            this.cbMaNCC2.BorderRadius = 17;
+            this.cbMaNCC2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbMaNCC2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMaNCC2.FillColor = System.Drawing.Color.LightGray;
+            this.cbMaNCC2.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbMaNCC2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbMaNCC2.Font = new System.Drawing.Font("UTM Alexander", 9.75F);
+            this.cbMaNCC2.ForeColor = System.Drawing.Color.Black;
+            this.cbMaNCC2.ItemHeight = 30;
+            this.cbMaNCC2.Location = new System.Drawing.Point(36, 32);
+            this.cbMaNCC2.Name = "cbMaNCC2";
+            this.cbMaNCC2.Size = new System.Drawing.Size(229, 36);
+            this.cbMaNCC2.TabIndex = 4;
+            // 
+            // btnThemDonNhap
+            // 
+            this.btnThemDonNhap.Animated = true;
+            this.btnThemDonNhap.AutoRoundedCorners = true;
+            this.btnThemDonNhap.BackColor = System.Drawing.Color.Transparent;
+            this.btnThemDonNhap.BorderRadius = 20;
+            this.btnThemDonNhap.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemDonNhap.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemDonNhap.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThemDonNhap.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThemDonNhap.Font = new System.Drawing.Font("UTM Alberta Heavy", 11.25F);
+            this.btnThemDonNhap.ForeColor = System.Drawing.Color.White;
+            this.btnThemDonNhap.IndicateFocus = true;
+            this.btnThemDonNhap.Location = new System.Drawing.Point(78, 280);
+            this.btnThemDonNhap.Name = "btnThemDonNhap";
+            this.btnThemDonNhap.Size = new System.Drawing.Size(142, 42);
+            this.btnThemDonNhap.TabIndex = 2;
+            this.btnThemDonNhap.Text = "Thêm Đơn Nhập";
+            this.btnThemDonNhap.UseTransparentBackground = true;
+            this.btnThemDonNhap.Click += new System.EventHandler(this.btnThemDonNhap_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("UTM Alberta Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(33, 117);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 20);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Ngày Nhập";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("UTM Alberta Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(32, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(130, 20);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Mã Nhà Cung Cấp";
+            // 
+            // btnback4
+            // 
+            this.btnback4.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnback4.HoverState.Image = global::ProjectDBMSWF.Properties.Resources.arrow;
+            this.btnback4.HoverState.ImageSize = new System.Drawing.Size(35, 35);
+            this.btnback4.Image = global::ProjectDBMSWF.Properties.Resources.arrow;
+            this.btnback4.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnback4.ImageRotate = 0F;
+            this.btnback4.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnback4.Location = new System.Drawing.Point(3, 3);
+            this.btnback4.Name = "btnback4";
+            this.btnback4.PressedState.ImageSize = new System.Drawing.Size(35, 35);
+            this.btnback4.Size = new System.Drawing.Size(39, 33);
+            this.btnback4.TabIndex = 5;
+            this.btnback4.Click += new System.EventHandler(this.btnback4_Click);
             // 
             // panel5
             // 
@@ -706,112 +834,6 @@
             this.label8.TabIndex = 6;
             this.label8.Text = "Tên Sản Phẩm";
             // 
-            // guna2Panel3
-            // 
-            this.guna2Panel3.BackColor = System.Drawing.Color.White;
-            this.guna2Panel3.Controls.Add(this.dtNgayNhap);
-            this.guna2Panel3.Controls.Add(this.cbMaNCC2);
-            this.guna2Panel3.Controls.Add(this.btnThemDonNhap);
-            this.guna2Panel3.Controls.Add(this.label3);
-            this.guna2Panel3.Controls.Add(this.label7);
-            this.guna2Panel3.Location = new System.Drawing.Point(367, 116);
-            this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(301, 350);
-            this.guna2Panel3.TabIndex = 4;
-            // 
-            // dtNgayNhap
-            // 
-            this.dtNgayNhap.Animated = true;
-            this.dtNgayNhap.AutoRoundedCorners = true;
-            this.dtNgayNhap.BorderRadius = 17;
-            this.dtNgayNhap.Checked = true;
-            this.dtNgayNhap.FillColor = System.Drawing.Color.Gainsboro;
-            this.dtNgayNhap.Font = new System.Drawing.Font("UTM Alexander", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtNgayNhap.Location = new System.Drawing.Point(36, 159);
-            this.dtNgayNhap.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtNgayNhap.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtNgayNhap.Name = "dtNgayNhap";
-            this.dtNgayNhap.Size = new System.Drawing.Size(233, 36);
-            this.dtNgayNhap.TabIndex = 6;
-            this.dtNgayNhap.Value = new System.DateTime(2024, 10, 12, 22, 2, 38, 746);
-            // 
-            // cbMaNCC2
-            // 
-            this.cbMaNCC2.AutoRoundedCorners = true;
-            this.cbMaNCC2.BackColor = System.Drawing.Color.Transparent;
-            this.cbMaNCC2.BorderColor = System.Drawing.Color.DarkGray;
-            this.cbMaNCC2.BorderRadius = 17;
-            this.cbMaNCC2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbMaNCC2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMaNCC2.FillColor = System.Drawing.Color.LightGray;
-            this.cbMaNCC2.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbMaNCC2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbMaNCC2.Font = new System.Drawing.Font("UTM Alexander", 9.75F);
-            this.cbMaNCC2.ForeColor = System.Drawing.Color.Black;
-            this.cbMaNCC2.ItemHeight = 30;
-            this.cbMaNCC2.Location = new System.Drawing.Point(36, 32);
-            this.cbMaNCC2.Name = "cbMaNCC2";
-            this.cbMaNCC2.Size = new System.Drawing.Size(229, 36);
-            this.cbMaNCC2.TabIndex = 4;
-            // 
-            // btnThemDonNhap
-            // 
-            this.btnThemDonNhap.Animated = true;
-            this.btnThemDonNhap.AutoRoundedCorners = true;
-            this.btnThemDonNhap.BackColor = System.Drawing.Color.Transparent;
-            this.btnThemDonNhap.BorderRadius = 20;
-            this.btnThemDonNhap.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnThemDonNhap.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnThemDonNhap.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnThemDonNhap.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnThemDonNhap.Font = new System.Drawing.Font("UTM Alberta Heavy", 11.25F);
-            this.btnThemDonNhap.ForeColor = System.Drawing.Color.White;
-            this.btnThemDonNhap.IndicateFocus = true;
-            this.btnThemDonNhap.Location = new System.Drawing.Point(78, 280);
-            this.btnThemDonNhap.Name = "btnThemDonNhap";
-            this.btnThemDonNhap.Size = new System.Drawing.Size(142, 42);
-            this.btnThemDonNhap.TabIndex = 2;
-            this.btnThemDonNhap.Text = "Thêm Đơn Nhập";
-            this.btnThemDonNhap.UseTransparentBackground = true;
-            this.btnThemDonNhap.Click += new System.EventHandler(this.btnThemDonNhap_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("UTM Alberta Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(33, 117);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 20);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Ngày Nhập";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("UTM Alberta Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(32, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(130, 20);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Mã Nhà Cung Cấp";
-            // 
-            // btnback4
-            // 
-            this.btnback4.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnback4.HoverState.Image = global::ProjectDBMSWF.Properties.Resources.arrow;
-            this.btnback4.HoverState.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnback4.Image = global::ProjectDBMSWF.Properties.Resources.arrow;
-            this.btnback4.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnback4.ImageRotate = 0F;
-            this.btnback4.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnback4.Location = new System.Drawing.Point(3, 3);
-            this.btnback4.Name = "btnback4";
-            this.btnback4.PressedState.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnback4.Size = new System.Drawing.Size(39, 33);
-            this.btnback4.TabIndex = 5;
-            this.btnback4.Click += new System.EventHandler(this.btnback4_Click);
-            // 
             // guna2Elipse3
             // 
             this.guna2Elipse3.BorderRadius = 25;
@@ -843,28 +865,6 @@
             this.guna2Elipse9.BorderRadius = 15;
             this.guna2Elipse9.TargetControl = this.guna2Panel3;
             // 
-            // btnXoaDonNhap
-            // 
-            this.btnXoaDonNhap.Animated = true;
-            this.btnXoaDonNhap.AutoRoundedCorners = true;
-            this.btnXoaDonNhap.BackColor = System.Drawing.Color.Transparent;
-            this.btnXoaDonNhap.BorderRadius = 20;
-            this.btnXoaDonNhap.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnXoaDonNhap.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnXoaDonNhap.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnXoaDonNhap.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnXoaDonNhap.FillColor = System.Drawing.Color.Red;
-            this.btnXoaDonNhap.Font = new System.Drawing.Font("UTM Alberta Heavy", 11.25F);
-            this.btnXoaDonNhap.ForeColor = System.Drawing.Color.White;
-            this.btnXoaDonNhap.IndicateFocus = true;
-            this.btnXoaDonNhap.Location = new System.Drawing.Point(515, 26);
-            this.btnXoaDonNhap.Name = "btnXoaDonNhap";
-            this.btnXoaDonNhap.Size = new System.Drawing.Size(130, 42);
-            this.btnXoaDonNhap.TabIndex = 2;
-            this.btnXoaDonNhap.Text = "Xóa Đơn Nhập";
-            this.btnXoaDonNhap.UseTransparentBackground = true;
-            this.btnXoaDonNhap.Click += new System.EventHandler(this.btnXoaDonNhap_Click);
-            // 
             // FQuanlynhaphang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -889,11 +889,11 @@
             this.panelContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvNhapHang)).EndInit();
             this.panel4.ResumeLayout(false);
+            this.guna2Panel3.ResumeLayout(false);
+            this.guna2Panel3.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
-            this.guna2Panel3.ResumeLayout(false);
-            this.guna2Panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }

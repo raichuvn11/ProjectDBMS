@@ -78,6 +78,10 @@ namespace ProjectDBMSWF
                     MessageBox.Show("Thêm Thành Công");
                 }
             }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Message);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi thêm Nhóm Linh Kiện: " + ex.Message);
@@ -105,6 +109,10 @@ namespace ProjectDBMSWF
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Update Thành Công");
                 }
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Message);
             }
             catch (Exception ex)
             {

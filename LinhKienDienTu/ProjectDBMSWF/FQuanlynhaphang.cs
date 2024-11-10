@@ -180,10 +180,8 @@ namespace ProjectDBMSWF
             
             try
             {
-                // Mở kết nối
                 cnt.Open();
 
-                // Tạo đối tượng SqlCommand để gọi thủ tục
                 using (SqlCommand cmd = new SqlCommand("sp_InsertNhapHang", cnt.GetConnection()))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -191,23 +189,52 @@ namespace ProjectDBMSWF
                     cmd.Parameters.AddWithValue("@MaDonNhap", MaDonNhap);
                     if (cbTenSP.SelectedItem != null)
                     {
-                        var selectedItem = (dynamic)cbTenSP.SelectedItem;
-                        String selectedId = selectedItem.Value;
-                        cmd.Parameters.AddWithValue("@MaLK", selectedId);
+                        var selectedItem = cbTenSP.SelectedItem as dynamic;
+                        if (selectedItem != null && selectedItem.Value != null)
+                        {
+                            string selectedId = selectedItem.Value;
+                            cmd.Parameters.AddWithValue("@MaLK", selectedId);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@MaLK", DBNull.Value);
+                        }
                     }
-                    int soluong = int.Parse(txtSoLuong.Text);
-                    float dongia = float.Parse(txtGiaNhap.Text);
-                    cmd.Parameters.AddWithValue("@SoLuong", soluong );
-                    cmd.Parameters.AddWithValue("@DonGia",dongia );
-                    cmd.Parameters.AddWithValue("@TongTien",soluong*dongia);
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@MaLK", DBNull.Value);
+                    }
+
+                    int soluong = 0;
+                    float dongia = 0f;
+
+                    if (string.IsNullOrEmpty(txtSoLuong.Text) || !int.TryParse(txtSoLuong.Text, out soluong))
+                    {
+                        MessageBox.Show("Số lượng không hợp lệ.");
+                        return;
+                    }
+
+                    if (string.IsNullOrEmpty(txtGiaNhap.Text) || !float.TryParse(txtGiaNhap.Text, out dongia))
+                    {
+                        MessageBox.Show("Giá nhập không hợp lệ.");
+                        return;
+                    }
+
+                    cmd.Parameters.AddWithValue("@SoLuong", soluong);
+                    cmd.Parameters.AddWithValue("@DonGia", dongia);
+                    cmd.Parameters.AddWithValue("@TongTien", soluong * dongia);
 
                     cmd.ExecuteNonQuery();
 
                 }
             }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Message);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi thêm đơn nhập hàng: " + ex.Message);
+                MessageBox.Show("Lỗi" + ex.Message);
             }
             finally
             {
@@ -220,10 +247,8 @@ namespace ProjectDBMSWF
         {
             try
             {
-                // Mở kết nối
                 cnt.Open();
 
-                // Tạo đối tượng SqlCommand để gọi thủ tục
                 using (SqlCommand cmd = new SqlCommand("sp_InsertDonNhapHang", cnt.GetConnection()))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -231,9 +256,20 @@ namespace ProjectDBMSWF
                     cmd.Parameters.AddWithValue("@NgayNhap",dtNgayNhap.Value.Date);
                     if (cbMaNCC2.SelectedItem != null)
                     {
-                        var selectedItem = (dynamic)cbMaNCC2.SelectedItem;
-                        String selectedId = selectedItem.Value;
-                        cmd.Parameters.AddWithValue("@MaNCC", selectedId);
+                        var selectedItem = cbMaNCC2.SelectedItem as dynamic;
+                        if (selectedItem != null && selectedItem.Value != null)
+                        {
+                            string selectedId = selectedItem.Value;
+                            cmd.Parameters.AddWithValue("@MaNCC", selectedId);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@MaNCC", DBNull.Value);
+                        }
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@MaNCC", DBNull.Value);
                     }
                     cmd.Parameters.AddWithValue("@GiaTriDonNhap", 1);
 
@@ -241,9 +277,14 @@ namespace ProjectDBMSWF
 
                 }
             }
+            catch (SqlException sqlEx)
+            {
+
+                MessageBox.Show(sqlEx.Message);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi thêm đơn nhập hàng: " + ex.Message);
+                MessageBox.Show("Lỗi" + ex.Message);
             }
             finally
             {
@@ -325,10 +366,8 @@ namespace ProjectDBMSWF
         {
             try
             {
-                // Mở kết nối
                 cnt.Open();
 
-                // Tạo đối tượng SqlCommand để gọi thủ tục
                 using (SqlCommand cmd = new SqlCommand("sp_UpdateNhapHang", cnt.GetConnection()))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -336,9 +375,21 @@ namespace ProjectDBMSWF
                     cmd.Parameters.AddWithValue("@MaDonNhap", MaDonNhap);
                     
                     cmd.Parameters.AddWithValue("@MaLK", MaLk);
-                    
-                    int soluong = int.Parse(txtSoLuong2.Text);
-                    float dongia = float.Parse(txtGiaNhap2.Text);
+
+                    int soluong = 0;
+                    float dongia = 0f;
+
+                    if (string.IsNullOrEmpty(txtSoLuong.Text) || !int.TryParse(txtSoLuong.Text, out soluong))
+                    {
+                        MessageBox.Show("Số lượng không hợp lệ.");
+                        return;
+                    }
+
+                    if (string.IsNullOrEmpty(txtGiaNhap.Text) || !float.TryParse(txtGiaNhap.Text, out dongia))
+                    {
+                        MessageBox.Show("Giá nhập không hợp lệ.");
+                        return;
+                    }
                     cmd.Parameters.AddWithValue("@SoLuong", soluong);
                     cmd.Parameters.AddWithValue("@DonGia", dongia);
                     cmd.Parameters.AddWithValue("@TongTien", soluong * dongia);
@@ -346,6 +397,11 @@ namespace ProjectDBMSWF
                     cmd.ExecuteNonQuery();
                     
                 }
+            }
+            catch (SqlException sqlEx)
+            {
+
+                MessageBox.Show(sqlEx.Message);
             }
             catch (Exception ex)
             {
@@ -378,6 +434,11 @@ namespace ProjectDBMSWF
 
                 }
             }
+            catch (SqlException sqlEx)
+            {
+                
+                MessageBox.Show(sqlEx.Message);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi xóa đơn nhập hàng: " + ex.Message);
@@ -407,6 +468,10 @@ namespace ProjectDBMSWF
 
                     MessageBox.Show("Xóa đơn nhập hàng và các sản phẩm liên quan thành công!");
                 }
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Message);
             }
             catch (Exception ex)
             {
