@@ -1,4 +1,4 @@
-Create TRIGGER [dbo].[Trigger_CreateSQLAccount] ON [dbo].[NhanVien]
+﻿Create TRIGGER [dbo].[Trigger_CreateSQLAccount] ON [dbo].[NhanVien]
 AFTER INSERT
 AS
 DECLARE @userName nvarchar(30), @passWord nvarchar(10)
@@ -19,9 +19,22 @@ EXEC (@sqlString)
 
 SET @sqlString = 'ALTER ROLE NhanVien ADD MEMBER ' + @userName;
 EXEC (@sqlString)
-END
+END;
+GO
+--hàm check login
+CREATE FUNCTION [dbo].[sp_CheckLogin] (@MaNV NVARCHAR(MAX),@SDT NVARCHAR(MAX)) RETURNS BIT
+AS
+BEGIN
+    DECLARE @result BIT;
 
+    SELECT @result = CAST(COUNT(*) AS BIT)
+    FROM NhanVien
+    WHERE MaNV = @MaNV AND SDT = @SDT;
 
+    RETURN @result;
+END;
+GO
+--tạo role
 create ROLE NhanVien
 
 GRANT SELECT, REFERENCES ON CaLamViec TO NhanVien;

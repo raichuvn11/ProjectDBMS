@@ -809,12 +809,27 @@ CREATE PROCEDURE sp_AddCaLamViec
     @Ngay DATE
 AS
 BEGIN
+    BEGIN TRANSACTION;
+    BEGIN TRY
+        IF EXISTS (SELECT 1 FROM CaLamViec WHERE Ngay = @Ngay)
+        BEGIN
+            RAISERROR(N'Đã tạo ca làm', 16, 1);
+            ROLLBACK TRANSACTION;
+            RETURN;
+        END
+        INSERT INTO CaLamViec (TenCa, Ngay, ThoiGianBD, ThoiGianKT)
+        VALUES 
+            (N'Sáng', @Ngay, '07:00', '12:00'),
+            (N'Chiều', @Ngay, '12:00', '17:00'),
+            (N'Tối', @Ngay, '17:00', '22:00');
 
-    INSERT INTO CaLamViec (TenCa, Ngay, ThoiGianBD, ThoiGianKT)
-    VALUES 
-	(N'Sáng', @Ngay, '07:00', '12:00'),
-	(N'Chiều', @Ngay, '12:00', '17:00'),
-	(N'Tối', @Ngay, '17:00', '22:00');
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        DECLARE @ErrorMessage NVARCHAR(4000) = 'Lỗi phân ca';
+        RAISERROR(@ErrorMessage, 16, 1);
+    END CATCH
 END;
 GO
 
@@ -829,8 +844,8 @@ BEGIN
     BEGIN TRY
         IF NOT EXISTS (SELECT 1 FROM PhanCa WHERE MaNhanVien = @MaNhanVien AND MaCa = @MaCa)
         BEGIN
-            INSERT INTO PhanCa (MaNhanVien, MaCa)
-            VALUES (@MaNhanVien, @MaCa);
+            INSERT INTO PhanCa (MaNhanVien, MaCa, trangthai)
+            VALUES (@MaNhanVien, @MaCa, 0);
         END
         ELSE
         BEGIN
