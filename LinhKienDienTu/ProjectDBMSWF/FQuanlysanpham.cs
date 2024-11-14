@@ -223,7 +223,7 @@ namespace ProjectDBMSWF
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message);
+                MessageBox.Show("Lỗi sql: " + ex.Message);
             }
             catch (Exception ex)
             {

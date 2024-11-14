@@ -10,7 +10,7 @@ BEGIN
 END;
 GO
 --Trigger tự động tạo mã ca làm việc
-CREATE TRIGGER trg_AutoGenerateMaCa
+ALTER TRIGGER trg_AutoGenerateMaCa
 ON CaLamViec
 INSTEAD OF INSERT
 AS
@@ -18,7 +18,7 @@ BEGIN
     INSERT INTO CaLamViec (MaCa, TenCa, Ngay, ThoiGianBD, ThoiGianKT)
     SELECT 
         
-        LEFT(CONCAT('CA', FORMAT(i.Ngay, 'yyMMdd'), SUBSTRING(i.TenCa, 1, 1)), 10) AS MaCa,
+        CONCAT('CA', FORMAT(i.Ngay, 'yyMMdd'), SUBSTRING(i.TenCa, 1, 1)) AS MaCa,
         i.TenCa,
         i.Ngay,
         i.ThoiGianBD,

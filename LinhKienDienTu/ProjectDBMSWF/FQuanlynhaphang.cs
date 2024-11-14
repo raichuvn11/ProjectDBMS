@@ -379,13 +379,13 @@ namespace ProjectDBMSWF
                     int soluong = 0;
                     float dongia = 0f;
 
-                    if (string.IsNullOrEmpty(txtSoLuong.Text) || !int.TryParse(txtSoLuong.Text, out soluong))
+                    if (string.IsNullOrEmpty(txtSoLuong2.Text) || !int.TryParse(txtSoLuong2.Text, out soluong))
                     {
                         MessageBox.Show("Số lượng không hợp lệ.");
                         return;
                     }
 
-                    if (string.IsNullOrEmpty(txtGiaNhap.Text) || !float.TryParse(txtGiaNhap.Text, out dongia))
+                    if (string.IsNullOrEmpty(txtGiaNhap2.Text) || !float.TryParse(txtGiaNhap2.Text, out dongia))
                     {
                         MessageBox.Show("Giá nhập không hợp lệ.");
                         return;

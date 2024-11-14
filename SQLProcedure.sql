@@ -391,6 +391,19 @@ DECLARE @Total MONEY
 	RETURN ISNULL(@Total,0);
 END;
 GO
+--function tính tỏng nhập hàng tháng
+CREATE FUNCTION fn_tongNhapHangTrongThang(@Month INT, @Year INT) RETURNS MONEY
+AS
+BEGIN
+DECLARE @Start Date, @End Date, @Total MONEY
+	SET @Start = DATEFROMPARTS(@Year, @Month, 1);
+	SET @End = EOMONTH(@Start);
+	SELECT @Total  = sum(GiaTriDonNhap)
+	FROM DonNhapHang
+	WHERE NgayNhap >= @Start AND NgayNhap <= @End;
+	RETURN ISNULL(@Total,0);
+END;
+
 --Procedure add linh kiện**
 CREATE PROCEDURE sp_AddLinhKien
     @MaLK nchar(10),
