@@ -19,7 +19,15 @@ namespace ProjectDBMSWF
 
         private void FDoanhThuCa_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = NhanVienDAO.loadDanhSachCaLam(FNhanvien.maNV);
+            var dataSource = NhanVienDAO.loadDanhSachCaLam(FNhanvien.maNV);
+            if (dataSource == null)
+            {
+                MessageBox.Show("Nhân viên chưa hoàn thành ca nào", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                dataGridView1.DataSource = dataSource;
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
